@@ -1,0 +1,76 @@
+@use "sass:color";
+
+.modal__btn {
+	@include button;
+
+	display: inline-block;
+	margin-right: 8px;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+.modal__btn-primary {
+	background-color: $dark-warning-color;
+	color: $dark-link-color;
+
+	&:hover {
+		background-color: $light-warning-color;
+		color: $light-link-color;
+	}
+}
+
+.modal__close {
+	color: $dark-text-color;
+}
+
+#start-timer {
+	@include button;
+
+	font-size: 2em;
+	padding: 20px 40px;
+	margin: auto;
+
+	@include buttonBg;
+}
+
+button {
+	@include button;
+}
+
+#help-button {
+	cursor: pointer;
+	position: absolute;
+	right: 1em;
+	top: 1em;
+
+	@include buttonBg;
+}
+
+#settings-button {
+	flex: 0 0 1;
+	cursor: pointer;
+	vertical-align: baseline;
+
+	@include buttonBg;
+}
+
+#cancel-button {
+	display: none;
+	margin: 2em auto;
+
+	@include buttonBg;
+
+	.countdownRunning & {
+		display: block;
+	}
+
+	.timerRunning & {
+		display: block;
+		border-radius: 50px;
+		font-size: 3rem;
+		width: 100%;
+		flex-grow: 1;
+	}
+}

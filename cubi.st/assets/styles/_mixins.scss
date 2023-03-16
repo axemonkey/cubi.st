@@ -1,0 +1,98 @@
+@use "sass:color";
+
+@mixin button {
+	padding: 0.5rem 1rem;
+	background-color: $dark-bg-color;
+	color: $dark-link-color;
+	border-radius: 0.5rem;
+	border-style: none;
+	border-width: 0;
+	cursor: pointer;
+	appearance: button;
+	margin: 0;
+	line-height: 1.15;
+	overflow: visible;
+	transition: background 0.2s ease-in-out;
+
+	&:hover {
+		background-color: $light-bg-color;
+		color: $light-link-color;
+	}
+
+	body.trinity & {
+		background-color: $trinityBgColor;
+	}
+
+	body.light & {
+		background-color: $light-bg-color;
+		color: $light-link-color;
+	}
+
+	body.newspaper & {
+		color: $newspaper-link-color;
+		border: 2px solid $newspaper-text-color;
+		background-color: $newspaper-button-color;
+		border-radius: 2px;
+	}
+
+	body.light &:hover {
+		background-color: $dark-bg-color;
+		color: $dark-link-color;
+	}
+
+	body.newspaper &:hover {
+		background-color: color.adjust($newspaper-bg-color, $lightness: 10%);
+	}
+}
+
+@mixin buttonBg {
+	background: $dark-timer-stopped-background;
+	color: $dark-text-color;
+	border: 0.25rem inset #666;
+
+	&:hover {
+		background: color.adjust($dark-timer-stopped-background, $lightness: 5%);
+	}
+
+	body.light & {
+		background: $light-timer-stopped-background;
+		color: $light-text-color;
+		border: 0.25rem inset #aaa;
+	}
+
+	body.trinity & {
+		background-color: $trinityBgColor;
+		color: $trinityColor;
+		border: 0.25rem inset color.adjust($trinityBgColor, $lightness: 20%);
+	}
+
+	body.newspaper & {
+		background-color: $newspaper-button-color;
+		color: $newspaper-text-color;
+		border: 2px solid $newspaper-text-color;
+	}
+
+	body.light &:hover {
+		background: color.adjust($light-timer-stopped-background, $lightness: -5%);
+	}
+
+	body.trinity &:hover {
+		background: color.adjust($trinityBgColor, $lightness: 20%);
+	}
+
+	body.newspaper &:hover {
+		background: color.adjust($newspaper-bg-color, $lightness: 20%);
+	}
+}
+
+@mixin hoverInfo {
+	cursor: help;
+
+	body.hover & {
+		border-bottom: 1px dotted $dark-text-color;
+	}
+
+	body.light.hover & {
+		border-bottom: 1px dotted $light-text-color;
+	}
+}

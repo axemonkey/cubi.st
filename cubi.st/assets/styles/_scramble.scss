@@ -1,0 +1,38 @@
+#scramble-container {
+	text-align: center;
+	margin: 0 5px;
+
+	h2 {
+		font-weight: normal;
+		margin: 0 0 0.5em;
+		font-size: 1em;
+	}
+
+	@media (min-width: $breakpoint) {
+		max-width: 80%;
+		margin: auto;
+	}
+}
+
+#scramble {
+	ul {
+		list-style-type: none;
+		display: inline-block;
+		padding: 0;
+		margin: auto;
+		text-align: left;
+
+		li {
+			list-style-type: none;
+			display: inline-block;
+			font-size: 20px;
+			margin-left: 5px;
+			margin-right: 10px;
+			margin-bottom: 10px;
+		}
+	}
+}
+
+#scramble .moveLabel {
+	@include hoverInfo;
+}

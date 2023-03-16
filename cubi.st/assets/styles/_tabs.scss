@@ -1,0 +1,62 @@
+@use "sass:color";
+
+$selected-tab-bg: color.adjust($dark-panel-color, $lightness: 10%);
+$unselected-tab-bg: color.adjust($dark-panel-color, $lightness: -10%);
+
+#help-container {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#help-container label {
+	order: 1;
+	display: block;
+	padding: 1rem;
+	margin-right: 0.2rem;
+	cursor: pointer;
+	background: $unselected-tab-bg;
+	font-weight: normal;
+	transition: background ease 0.2s;
+
+	&:last-child {
+		margin-right: 0;
+	}
+}
+
+#help-container .tab {
+	order: 99;
+	flex-grow: 1;
+	width: 100%;
+	display: none;
+	padding: 1rem;
+	background: $selected-tab-bg;
+}
+
+#help-container .tab p:last-child {
+	margin-bottom: 0;
+}
+
+#help-container input[type="radio"] {
+	display: none;
+}
+
+#help-container input[type="radio"]:checked + label {
+	background: $selected-tab-bg;
+}
+
+#help-container input[type="radio"]:checked + label + .tab {
+	display: block;
+}
+
+@media (max-width: 45em) {
+	#help-container .tab,
+	#help-container label {
+		order: initial;
+	}
+
+	#help-container label {
+		width: 100%;
+		margin-right: 0;
+		margin-top: 0.2rem;
+	}
+}

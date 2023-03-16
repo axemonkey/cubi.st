@@ -1,0 +1,96 @@
+.wrapper {
+	display: flex;
+	height: 100%;
+	height: 100vh;
+	flex-direction: column;
+	margin: auto;
+
+	@media (min-width: $breakpoint) {
+		padding: 1em;
+		max-width: 1200px;
+	}
+}
+
+main {
+	flex: 1 1 0;
+	padding: 0;
+
+	@media (min-width: $breakpoint) {
+		padding: 1em;
+	}
+}
+
+aside {
+	display: none;
+	position: relative;
+	padding: 10px;
+
+	body.js & {
+		display: block;
+		flex: 1 1 0;
+	}
+
+	> section {
+		margin: 0;
+		padding: 10px;
+	}
+}
+
+body.js.timerRunning {
+	main {
+		display: flex;
+		flex-direction: column;
+		padding: 0;
+	}
+
+	header,
+	#help-button,
+	#settings-button,
+	#options,
+	aside,
+	#scramble-container {
+		display: none;
+	}
+
+	#timer-section {
+		flex-grow: 1;
+		display: flex;
+		flex-direction: column;
+
+		#timer {
+			flex-grow: 3;
+			margin: 0;
+			max-width: none;
+		}
+	}
+}
+
+#times-container {
+	display: block;
+	width: auto;
+}
+
+#averages-list {
+	display: block;
+	width: auto;
+}
+
+@media (min-width: $breakpoint) {
+	aside {
+		body.js & {
+			display: flex;
+			flex-direction: row;
+			align-content: flex-start;
+			padding: 1em;
+		}
+	}
+
+	#times-container {
+		flex: 1 0 320px;
+		margin-right: 20px;
+	}
+
+	#averages-list {
+		flex: 0 1 auto;
+	}
+}

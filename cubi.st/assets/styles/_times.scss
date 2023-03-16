@@ -1,0 +1,109 @@
+#times-container {
+	text-align: center;
+	padding-bottom: 2em;
+
+	h2 {
+		display: inline-block;
+		margin-bottom: 15px;
+		text-align: center;
+		font-size: 1.5em;
+	}
+
+	@media (min-width: $breakpoint) {
+		text-align: left;
+		margin-bottom: 0;
+	}
+}
+
+#times-list-outer {
+	position: relative;
+	overflow: auto;
+	margin-bottom: 10px;
+}
+
+@media (min-width: $breakpoint) {
+	#times-list-outer {
+		max-height: 300px;
+	}
+}
+
+#times-list,
+#times-modal-list {
+	list-style-type: none;
+	padding: 0;
+	margin: 10px 30px;
+	font-size: 1.5em;
+
+	li {
+		list-style-type: none;
+
+		span,
+		a {
+			display: inline-block;
+		}
+
+		.count {
+			font-family: $monospaceFont;
+			font-size: 0.75em;
+		}
+
+		.time,
+		.timestamp {
+			font-family: $monospaceFont;
+			margin-left: 20px;
+			background: transparent;
+			border-radius: 3px;
+			padding: 0 5px;
+
+			&.new {
+				animation: new-time 0.5s;
+			}
+		}
+
+		button {
+			margin-left: 20px;
+			padding: 2px;
+			font-size: 0.75em;
+		}
+	}
+	@media (min-width: $breakpoint) {
+		font-size: 1em;
+
+		li {
+			.count {
+				font-size: 0.75em;
+			}
+		}
+	}
+}
+
+#times-modal-list {
+	margin: 10px 0;
+}
+
+#clear-times {
+	font-size: 14px;
+	margin-left: 20px;
+}
+
+#clear-times,
+.deleteTime {
+	display: inline-block;
+	font-family: $monospaceFont;
+	background: none;
+	border: none;
+	border-radius: 3px;
+	color: $dark-link-color;
+	cursor: pointer;
+	transition: background 0.2s ease-in-out;
+
+	&:hover {
+		background: $dark-link-color;
+		color: $dark-bg-color;
+	}
+}
+
+#show-more-button {
+	display: block;
+	margin: 0 auto 10px;
+}

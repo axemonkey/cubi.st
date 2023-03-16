@@ -1,0 +1,15 @@
+#tooltip {
+	font-size: 13px;
+	font-family: $bodyFont;
+	display: none;
+	line-height: normal;
+	margin-top: 15px;
+	padding: 2px 5px 4px;
+	position: absolute;
+	text-wrap: none;
+	white-space: nowrap;
+	border-radius: 5px;
+	border: 1px solid $dark-bg-color;
+	color: $dark-bg-color;
+	background-color: $dark-text-color;
+}

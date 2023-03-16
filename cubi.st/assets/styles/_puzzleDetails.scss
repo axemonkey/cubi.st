@@ -1,0 +1,13 @@
+#puzzle-details {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: center;
+	gap: 1em;
+	align-items: baseline;
+	margin: 1em auto;
+}
+
+#options {
+	flex: 0 0 1;
+	margin: 0;
+}

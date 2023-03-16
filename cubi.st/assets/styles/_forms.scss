@@ -1,0 +1,83 @@
+label,
+input,
+button,
+textarea,
+option {
+	font-family: $bodyFont;
+}
+
+select {
+	font-size: 20px;
+	font-family: $bodyFont;
+	border: 1px solid $dark-bg-color;
+	color: $dark-bg-color;
+	background-color: $dark-text-color;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+option {
+	padding: 5px 2px;
+}
+
+label {
+	font-size: 20px;
+}
+
+// checkboxes inspired by GOV.UK Design System - https://github.com/alphagov/govuk-frontend
+
+input[type="checkbox"] {
+	font-size: 20px;
+	cursor: pointer;
+	position: absolute;
+	z-index: 1;
+	top: -2px;
+	left: -2px;
+	width: 44px;
+	height: 44px;
+	margin: 0;
+	opacity: 0;
+}
+
+.checkbox-label {
+	display: inline-block;
+	margin-bottom: 0;
+	padding: 0;
+	cursor: pointer;
+	position: relative;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 50%;
+		width: 24px;
+		height: 24px;
+		border: 2px solid currentColor;
+		border-radius: 5px;
+		background: transparent;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 8px;
+		left: calc(50% + 7px);
+		width: 11px;
+		height: 5px;
+		transform: rotate(-45deg);
+		border: solid;
+		border-width: 0 0 3px 3px;
+		border-top-color: transparent;
+		opacity: 0;
+		background: transparent;
+	}
+}
+
+input[type="checkbox"]:checked + .checkbox-label::after {
+	opacity: 1;
+}
+
+input[type="checkbox"]:focus + .checkbox-label::before {
+	outline: $focusStyle;
+}

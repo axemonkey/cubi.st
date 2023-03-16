@@ -1,0 +1,31 @@
+#averages-list {
+	list-style-type: none;
+	font-size: 0.875em;
+	margin: 0;
+	padding: 0;
+
+	li {
+		width: 50%;
+		float: left;
+		margin-bottom: 5px;
+
+		.averageLabelOuter {
+			width: 50%;
+			display: inline-block;
+		}
+
+		.averageTime {
+			width: 40%;
+			display: inline-block;
+			font-family: $monospaceFont;
+		}
+	}
+
+	@media (min-width: $breakpoint) {
+		font-size: 1.1em;
+	}
+}
+
+#averages-list .averageLabel {
+	@include hoverInfo;
+}

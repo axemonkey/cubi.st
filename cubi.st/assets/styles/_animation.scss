@@ -1,0 +1,118 @@
+@keyframes fadebg {
+	0% {
+		background: #f00;
+	}
+
+	10% {
+		background: #ff0;
+	}
+
+	20% {
+		background: #0f0;
+	}
+
+	30% {
+		background: orange;
+	}
+
+	40% {
+		background: #00f;
+	}
+
+	50% {
+		background: #fff;
+	}
+
+	100% {
+		background: $dark-timer-stopped-background;
+	}
+}
+@keyframes fadebg-light {
+	0% {
+		background: #f00;
+	}
+
+	10% {
+		background: #ff0;
+	}
+
+	20% {
+		background: #0f0;
+	}
+
+	30% {
+		background: orange;
+	}
+
+	40% {
+		background: #00f;
+	}
+
+	50% {
+		background: #fff;
+	}
+
+	100% {
+		background: $light-timer-stopped-background;
+	}
+}
+
+@keyframes flash {
+	0% {
+		background: #ff0;
+	}
+
+	100% {
+		background: $dark-timer-stopped-background;
+	}
+}
+
+@keyframes flash-light {
+	0% {
+		background: #c00;
+	}
+
+	100% {
+		background: $light-timer-stopped-background;
+	}
+}
+
+@keyframes start {
+	0% {
+		background: #0c0;
+	}
+
+	100% {
+		background: $dark-timer-stopped-background;
+	}
+}
+
+@keyframes start-light {
+	0% {
+		background: #0c0;
+	}
+
+	100% {
+		background: $light-timer-stopped-background;
+	}
+}
+
+@keyframes new-time {
+	0% {
+		background: cyan;
+	}
+
+	100% {
+		background: $dark-timer-stopped-background;
+	}
+}
+
+@keyframes new-time-light {
+	0% {
+		background: cyan;
+	}
+
+	100% {
+		background: $light-timer-stopped-background;
+	}
+}

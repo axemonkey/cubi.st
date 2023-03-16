@@ -1,0 +1,97 @@
+@use "sass:color";
+
+$trinityThemeFont: "Courier New", courier, monospace;
+
+body.Trinity {
+	font-family: $trinityThemeFont;
+	color: $trinityColor;
+	background-color: $trinityBgColor;
+
+	#timer {
+		font-family: $trinityThemeFont;
+		font-weight: normal;
+		color: $trinityColor;
+		background-color: color.adjust($trinityBgColor, $lightness: 10%);
+		border: 7px inset color.adjust($trinityBgColor, $lightness: 5%);
+
+		&:hover {
+			background-color: color.adjust($trinityBgColor, $lightness: 20%);
+		}
+	}
+
+	#cancel-button {
+		color: $trinityColor;
+		background-color: color.adjust($trinityBgColor, $lightness: 10%);
+		border: 0.25rem inset color.adjust($trinityBgColor, $lightness: 5%);
+
+		&:hover {
+			// background-color: lighten($trinityBgColor, 20%);
+			background-color: color.adjust($trinityBgColor, $lightness: 20%);
+		}
+	}
+
+	#averages-list {
+		li {
+			.averageTime {
+				font-family: $trinityThemeFont;
+			}
+		}
+	}
+
+	select,
+	label,
+	input,
+	button,
+	textarea,
+	option {
+		font-family: $trinityThemeFont;
+	}
+
+	.modal__header {
+		font-family: $trinityThemeFont;
+	}
+
+	.modal__content {
+		font-family: $trinityThemeFont;
+
+		h2 {
+			font-family: $trinityThemeFont;
+		}
+	}
+
+	#times-list {
+		li {
+			.count {
+				font-family: $trinityThemeFont;
+			}
+
+			.time {
+				font-family: $trinityThemeFont;
+			}
+		}
+	}
+
+	#clear-times,
+	.deleteTime {
+		font-family: $trinityThemeFont;
+	}
+
+	#tooltip {
+		font-family: $trinityThemeFont;
+	}
+
+	h1 {
+		span.siteName {
+			font-family: $trinityThemeFont;
+		}
+	}
+
+	a {
+		font-family: $trinityThemeFont;
+	}
+
+	select,
+	label {
+		font-size: 16px;
+	}
+}

@@ -1,0 +1,99 @@
+@use "sass:color";
+
+body.Light {
+	background-color: $light-bg-color;
+	color: $light-text-color;
+
+	.modal__btn-primary {
+		background-color: $light-warning-color;
+		color: $light-link-color;
+
+		&:hover {
+			background-color: $dark-warning-color;
+			color: $dark-link-color;
+		}
+	}
+
+	.modal__close {
+		color: $light-text-color;
+	}
+
+	select {
+		border: 1px solid $light-bg-color;
+		color: $light-bg-color;
+		background-color: $light-text-color;
+	}
+
+	.modal__container {
+		background-color: $light-panel-color;
+	}
+
+	.modal__title {
+		color: $light-text-color;
+	}
+
+	.modal__content {
+		color: $light-text-color;
+	}
+
+	#timer {
+		border: 7px inset #aaa;
+		background: $light-timer-stopped-background;
+		color: $light-text-color;
+
+		&:hover {
+			background: color.adjust(
+				$light-timer-stopped-background,
+				$lightness: -5%
+			);
+		}
+
+		&.cooldown {
+			background: $light-timer-stopped-background;
+			animation: fadebg-light 1s;
+		}
+
+		&.flash {
+			background: $light-timer-stopped-background;
+			animation: flash-light 0.5s;
+		}
+
+		&.start {
+			background: $light-timer-stopped-background;
+			animation: start-light 1s;
+		}
+	}
+
+	#times-list {
+		li {
+			.time.new {
+				animation: new-time-light 0.5s;
+			}
+		}
+	}
+
+	#clear-times,
+	.deleteTime {
+		color: $light-link-color;
+
+		&:hover {
+			background: $light-link-color;
+			color: $light-bg-color;
+		}
+	}
+
+	#tooltip {
+		border: 1px solid $light-bg-color;
+		color: $light-bg-color;
+		background-color: $light-text-color;
+	}
+
+	a {
+		color: $light-link-color;
+
+		&:hover {
+			background-color: $light-link-color;
+			color: $light-bg-color;
+		}
+	}
+}

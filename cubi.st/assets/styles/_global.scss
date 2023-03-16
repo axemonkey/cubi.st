@@ -1,0 +1,19 @@
+* {
+	box-sizing: border-box;
+}
+
+.block {
+	display: block;
+}
+
+.hide {
+	display: none;
+}
+
+*:focus {
+	outline: $focusStyle;
+}
+
+a:active {
+	outline: 10px solid red;
+}

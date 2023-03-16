@@ -1,0 +1,137 @@
+@use "sass:color";
+
+$serifThemeFont: "Times", serif;
+
+body.Newspaper {
+	font-family: $serifThemeFont;
+	color: $newspaper-text-color;
+	background-color: $newspaper-bg-color;
+
+	.modal__btn-primary {
+		background-color: $newspaper-warning-color;
+		color: $newspaper-link-color;
+
+		&:hover {
+			background-color: $dark-warning-color;
+			color: $dark-link-color;
+		}
+	}
+
+	.modal__close {
+		color: $newspaper-text-color;
+	}
+
+	.modal__container {
+		background-color: $newspaper-panel-color;
+		border: 2px solid $newspaper-text-color;
+	}
+
+	.modal__title {
+		color: $newspaper-text-color;
+	}
+
+	.modal__content {
+		color: $newspaper-text-color;
+		font-family: $serifThemeFont;
+
+		h2 {
+			font-family: $serifThemeFont;
+		}
+	}
+
+	#timer {
+		font-family: $serifThemeFont;
+		font-weight: normal;
+		color: $newspaper-text-color;
+		background-color: $newspaper-button-color;
+		border: 2px solid $newspaper-text-color;
+		border-radius: 3px;
+
+		&:hover {
+			background-color: color.adjust($newspaper-button-color, $lightness: 20%);
+		}
+	}
+
+	#cancel-button {
+		color: $newspaper-text-color;
+		background-color: color.adjust($newspaper-bg-color, $lightness: 10%);
+		border: 2px solid $newspaper-text-color;
+		border-radius: 3px;
+
+		&:hover {
+			background-color: color.adjust($newspaper-bg-color, $lightness: 20%);
+		}
+	}
+
+	#averages-list {
+		li {
+			.averageTime {
+				font-family: $serifThemeFont;
+			}
+		}
+	}
+
+	.checkbox-label::before {
+		background-color: $newspaper-button-color;
+		border-radius: 3px;
+	}
+
+	.checkbox-label:hover::before {
+		background-color: color.adjust($newspaper-button-color, $lightness: 10%);
+	}
+
+	select,
+	label,
+	input,
+	button,
+	textarea,
+	option {
+		font-family: $serifThemeFont;
+	}
+
+	#config section select {
+		border: 2px solid $newspaper-text-color;
+		border-radius: 3px;
+		color: $newspaper-text-color;
+		background-color: $newspaper-button-color;
+
+		&:hover {
+			background-color: color.adjust($newspaper-button-color, $lightness: 10%);
+		}
+	}
+
+	.modal__header {
+		font-family: $serifThemeFont;
+	}
+
+	#times-list {
+		li {
+			.count {
+				font-family: $serifThemeFont;
+			}
+
+			.time {
+				font-family: $serifThemeFont;
+			}
+		}
+	}
+
+	#clear-times,
+	.deleteTime {
+		font-family: $serifThemeFont;
+	}
+
+	#tooltip {
+		font-family: $serifThemeFont;
+	}
+
+	h1 {
+		span.siteName {
+			font-family: $serifThemeFont;
+		}
+	}
+
+	a {
+		font-family: $serifThemeFont;
+	}
+}

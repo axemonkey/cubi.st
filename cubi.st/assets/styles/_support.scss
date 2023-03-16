@@ -1,0 +1,14 @@
+.support {
+	position: absolute;
+	right: 1em;
+	bottom: 1em;
+
+	p {
+		text-align: right;
+		margin: 0 0 5px;
+	}
+
+	a:hover {
+		background-color: transparent;
+	}
+}

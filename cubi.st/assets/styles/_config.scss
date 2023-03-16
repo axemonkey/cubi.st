@@ -1,0 +1,28 @@
+#config {
+	section {
+		margin-bottom: 1em;
+
+		&:not(#debug) {
+			display: flex;
+			gap: 10px;
+		}
+
+		label,
+		select {
+			flex: 1 1 0;
+			border: none;
+		}
+	}
+}
+
+#debug {
+	display: none;
+
+	html.debug & {
+		display: block;
+	}
+
+	li {
+		padding-bottom: 8px;
+	}
+}

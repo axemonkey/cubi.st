@@ -1,0 +1,34 @@
+@use "sass:color";
+
+$dark-text-color: #eee;
+$dark-bg-color: #333;
+$dark-link-color: #fff;
+$dark-panel-color: #555;
+$dark-warning-color: #c00;
+$dark-success-color: #9f9;
+$dark-timer-stopped-background: #555;
+$light-text-color: #333;
+$light-bg-color: #ccc;
+$light-link-color: #000;
+$light-panel-color: #aaa;
+$light-warning-color: #f66;
+$light-success-color: #393;
+$light-timer-stopped-background: #bbb;
+$newspaper-text-color: #111;
+$newspaper-bg-color: #eee;
+$newspaper-link-color: #111;
+$newspaper-panel-color: #aaa;
+$newspaper-warning-color: #f66;
+$newspaper-success-color: #393;
+$newspaper-timer-stopped-background: color.adjust(
+	$newspaper-bg-color,
+	$lightness: -10%
+);
+$newspaper-button-color: color.adjust($newspaper-bg-color, $lightness: -10%);
+$trinityColor: #00ff41;
+$trinityBgColor: #0d0208;
+$focusStyle: orange 2px auto;
+$monospaceFont: "NovaMono", arial, monospace;
+$sansSerifFont: "Rubik", sans-serif;
+$bodyFont: $sansSerifFont;
+$breakpoint: 768px;
