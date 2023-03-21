@@ -15,7 +15,7 @@ TODO
   * also Atkinson Hyperlegible: https://brailleinstitute.org/freefont
   * not just dark/light theme – colour balance for ADHD
 * fix modals for touch users
-* can't tab to links in modal?
+* can't tab to links in modal??
 
 WISHLIST / NICE TO HAVES
 
