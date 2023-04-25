@@ -48,7 +48,7 @@ $unselected-tab-bg: color.adjust($dark-panel-color, $lightness: -10%);
 	display: block;
 }
 
-@media (max-width: 45em) {
+@media (width <= 45em) {
 	#help-container .tab,
 	#help-container label {
 		order: initial;
