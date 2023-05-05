@@ -19,68 +19,71 @@ const clearTimesDialog = () => {
 };
 
 const getTimesForPuzzle = newTime => {
-	console.log('getting times');
-	const ls = localStorage.getItem(timerSettings.timesStorageItem);
-	const timesObjString = ls || '{}';
-	let timesArray = [];
 	const timesPanel = document.querySelector('#times');
 
-	timerSettings.timesObj = JSON.parse(timesObjString);
-	if (timerSettings.timesObj[timerSettings.puzzle]) {
-		timesArray = timerSettings.timesObj[timerSettings.puzzle];
-	}
+	if (timesPanel) {
+		console.log('getting times');
+		const ls = localStorage.getItem(timerSettings.timesStorageItem);
+		const timesObjString = ls || '{}';
+		let timesArray = [];
 
-	console.log('TIMESARRAY');
-	console.log(timesArray);
-
-	if (timesArray.length === 0) {
-		timesPanel.innerHTML = '';
-		return;
-	}
-
-	let firstTimeToShow = 0;
-	let showMoreLink = false;
-	if (timesArray.length > timerSettings.timesListLength) {
-		firstTimeToShow = timesArray.length - timerSettings.timesListLength;
-		showMoreLink = true;
-	}
-
-	const listPrefix = `<div id="times-container"><h2>Times for ${timerSettings.puzzle}</h2><button id="clear-times">Clear</button><div id="times-list-outer"><ul id="times-list">`;
-	let listSuffix = '</ul>';
-	if (showMoreLink) {
-		listSuffix += '<button id="show-more-button">View all</button>';
-	}
-	listSuffix += '</div></div>';
-
-	let listItems = '';
-	const timeAdditionalClass = (newTime ? ' new' : '');
-
-	for (let i = firstTimeToShow; i < timesArray.length; i++) {
-		listItems += '<li><span class="count">';
-		listItems += lz(i + 1, 4);
-		listItems += `:</span> <span class="time${(i === timesArray.length - 1 ? timeAdditionalClass : '')}"`;
-		if (timesArray[i].timestamp) {
-			listItems += ` title="${timesArray[i].timestamp}"`;
+		timerSettings.timesObj = JSON.parse(timesObjString);
+		if (timerSettings.timesObj[timerSettings.puzzle]) {
+			timesArray = timerSettings.timesObj[timerSettings.puzzle];
 		}
-		listItems += `>`;
-		listItems += timesArray[i].time;
-		listItems += '</span>';
-		listItems += `<button class="deleteTime" data-timeindex="${i}">Delete</button>`;
-		listItems += '</li>';
+
+		console.log('TIMESARRAY');
+		console.log(timesArray);
+
+		if (timesArray.length === 0) {
+			timesPanel.innerHTML = '';
+			return;
+		}
+
+		let firstTimeToShow = 0;
+		let showMoreLink = false;
+		if (timesArray.length > timerSettings.timesListLength) {
+			firstTimeToShow = timesArray.length - timerSettings.timesListLength;
+			showMoreLink = true;
+		}
+
+		const listPrefix = `<div id="times-container"><h2>Times for ${timerSettings.puzzle}</h2><button id="clear-times">Clear</button><div id="times-list-outer"><ul id="times-list">`;
+		let listSuffix = '</ul>';
+		if (showMoreLink) {
+			listSuffix += '<button id="show-more-button">View all</button>';
+		}
+		listSuffix += '</div></div>';
+
+		let listItems = '';
+		const timeAdditionalClass = (newTime ? ' new' : '');
+
+		for (let i = firstTimeToShow; i < timesArray.length; i++) {
+			listItems += '<li><span class="count">';
+			listItems += lz(i + 1, 4);
+			listItems += `:</span> <span class="time${(i === timesArray.length - 1 ? timeAdditionalClass : '')}"`;
+			if (timesArray[i].timestamp) {
+				listItems += ` title="${timesArray[i].timestamp}"`;
+			}
+			listItems += `>`;
+			listItems += timesArray[i].time;
+			listItems += '</span>';
+			listItems += `<button class="deleteTime" data-timeindex="${i}">Delete</button>`;
+			listItems += '</li>';
+		}
+
+		const averages = getAverages(timesArray);
+		console.log(averages);
+		const averagesHTML = getAveragesHTML(averages);
+
+		timesPanel.innerHTML = listPrefix + listItems + listSuffix + averagesHTML;
+		document.querySelector('#times-list-outer').scrollTop = document.querySelector('#times-list').offsetHeight;
+
+		document.querySelector('#clear-times').addEventListener('click', event => {
+			event.preventDefault();
+			event.target.blur();
+			clearTimesDialog();
+		});
 	}
-
-	const averages = getAverages(timesArray);
-	console.log(averages);
-	const averagesHTML = getAveragesHTML(averages);
-
-	timesPanel.innerHTML = listPrefix + listItems + listSuffix + averagesHTML;
-	document.querySelector('#times-list-outer').scrollTop = document.querySelector('#times-list').offsetHeight;
-
-	document.querySelector('#clear-times').addEventListener('click', event => {
-		event.preventDefault();
-		event.target.blur();
-		clearTimesDialog();
-	});
 };
 
 const removeNewClass = () => {

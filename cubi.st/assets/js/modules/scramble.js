@@ -81,19 +81,21 @@ const getScramble = () => {
 };
 
 const showScramble = () => {
-	const scramble = getScramble();
-	console.log(scramble);
+	if (timerSettings.scrambleEl) {
+		const scramble = getScramble();
+		console.log(scramble);
 
-	let scrambleHTML = '<ul>';
-	const scrambleSuffix = '</ul>';
+		let scrambleHTML = '<ul>';
+		const scrambleSuffix = '</ul>';
 
-	for (const element of scramble) {
-		scrambleHTML += `<li><span class="moveLabel" title="Turn the ${[element.move.label, element.modifier.label].join(' ')}">${element.move.text + element.modifier.text}</span></li>`;
+		for (const element of scramble) {
+			scrambleHTML += `<li><span class="moveLabel" title="Turn the ${[element.move.label, element.modifier.label].join(' ')}">${element.move.text + element.modifier.text}</span></li>`;
+		}
+
+		scrambleHTML += scrambleSuffix;
+
+		timerSettings.scrambleEl.innerHTML = scrambleHTML;
 	}
-
-	scrambleHTML += scrambleSuffix;
-
-	timerSettings.scrambleEl.innerHTML = scrambleHTML;
 };
 
 export {showScramble};

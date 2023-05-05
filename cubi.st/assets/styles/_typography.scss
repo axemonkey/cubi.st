@@ -59,6 +59,31 @@ a {
 	}
 }
 
+.content {
+	line-height: 1.5;
+	font-size: 1.25rem;
+
+	h2 {
+		margin-top: 80px;
+		padding-top: 80px;
+		border-top: 1px dashed $dark-text-color;
+
+		&:first-child {
+			margin-top: 0;
+			padding-top: 0;
+			border-top: none;
+		}
+	}
+}
+
+dt {
+	margin-bottom: 10px;
+}
+
+dd {
+	margin-bottom: 20px;
+}
+
 button {
 	font-size: inherit;
 }

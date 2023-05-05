@@ -4,12 +4,14 @@ import {lz} from './tools.js';
 
 const updateModal = () => {
 	const modal = document.querySelector(`#${timerSettings.deleteTimesModalId}`);
-	const spans = modal.querySelectorAll('.puzzle');
+	if (modal) {
+		const spans = modal.querySelectorAll('.puzzle');
 
-	for (const span in spans) {
-		if (Object.prototype.hasOwnProperty.call(spans, span)) {
-			console.log(span);
-			spans[span].textContent = timerSettings.puzzle;
+		for (const span in spans) {
+			if (Object.prototype.hasOwnProperty.call(spans, span)) {
+				console.log(span);
+				spans[span].textContent = timerSettings.puzzle;
+			}
 		}
 	}
 };

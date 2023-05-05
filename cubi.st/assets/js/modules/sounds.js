@@ -8,8 +8,11 @@ const initSounds = () => {
 	}
 
 	timerSettings.soundsOn = sounds;
-	timerSettings.soundCheckbox.checked = sounds;
 	console.log(`timerSettings.soundsOn: ${timerSettings.soundsOn}`);
+
+	if (timerSettings.soundCheckbox) {
+		timerSettings.soundCheckbox.checked = sounds;
+	}
 };
 
 const checkSoundsCheckbox = () => {

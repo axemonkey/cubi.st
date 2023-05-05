@@ -29,6 +29,13 @@ const timerSettings = {
 	configObj: {},
 	timesObj: {},
 	timesListLength: 10,
+	themesAvailable: [
+		'Dark',
+		'Light',
+		'Newspaper',
+		'Trinity',
+		'ADHD',
+	],
 	defaults: {
 		soundsOn: true,
 		focusOn: false,

@@ -18,14 +18,16 @@ const initPuzzle = () => {
 		puzzle = timerSettings.configObj.puzzle;
 	}
 	timerSettings.puzzle = puzzle;
-
-	for (const elem of timerSettings.selectPuzzleEl.querySelectorAll('option')) {
-		const puzzleOption = elem;
-		puzzleOption.selected = false;
-	}
-	timerSettings.selectPuzzleEl.querySelector('#puzzle_' + puzzle).selected = true;
 	console.log(`timerSettings.puzzle: ${timerSettings.puzzle}`);
-	setupForPuzzle();
+
+	if (timerSettings.selectPuzzleEl) {
+		for (const elem of timerSettings.selectPuzzleEl.querySelectorAll('option')) {
+			const puzzleOption = elem;
+			puzzleOption.selected = false;
+		}
+		timerSettings.selectPuzzleEl.querySelector('#puzzle_' + puzzle).selected = true;
+		setupForPuzzle();
+	}
 };
 
 const selectPuzzle = () => {

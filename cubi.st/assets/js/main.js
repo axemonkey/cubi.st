@@ -7,7 +7,7 @@ import {initFocus, checkFocusCheckbox} from './modules/focus.js';
 import {initTheme, checkThemeDropdown} from './modules/theme.js';
 import {initPuzzle, selectPuzzle} from './modules/puzzle.js';
 import {spacePressed, escPressed, onFirstHover} from './modules/events.js';
-import {infoModal, settingsModal, timesListModal} from './modules/modals.js';
+import {settingsModal, timesListModal} from './modules/modals.js';
 import {deleteTime, clearTimes} from './modules/times.js';
 import {initOptions} from './modules/options.js';
 import {initTimerButton, hardStop} from './modules/timer.js';
@@ -27,31 +27,48 @@ const init = () => {
 	initPuzzle();
 	initOptions();
 
-	timerSettings.timerEl.innerHTML = timerSettings.defaultState;
+	if (timerSettings.timerEl) {
+		timerSettings.timerEl.innerHTML = timerSettings.defaultState;
 
-	timerSettings.timerEl.addEventListener('click', event => {
-		console.log('timer clicked');
-		console.log('timerSettings.timerRunning: ' + timerSettings.timerRunning);
-		console.log('timerSettings.countdownRunning: ' + timerSettings.countdownRunning);
-		event.preventDefault();
-		spacePressed(event.target);
-	}, false);
+		timerSettings.timerEl.addEventListener('click', event => {
+			console.log('timer clicked');
+			console.log('timerSettings.timerRunning: ' + timerSettings.timerRunning);
+			console.log('timerSettings.countdownRunning: ' + timerSettings.countdownRunning);
+			event.preventDefault();
+			spacePressed(event.target);
+		}, false);
+	}
 
-	timerSettings.countdownDurationEl.addEventListener('change', () => {
-		getCountdownDuration();
-	});
-	timerSettings.soundCheckbox.addEventListener('change', () => {
-		checkSoundsCheckbox();
-	});
-	timerSettings.focusCheckbox.addEventListener('change', () => {
-		checkFocusCheckbox();
-	});
-	timerSettings.themeDropdown.addEventListener('change', () => {
-		checkThemeDropdown();
-	});
-	timerSettings.selectPuzzleEl.addEventListener('change', () => {
-		selectPuzzle();
-	});
+	if (timerSettings.countdownDurationEl) {
+		timerSettings.countdownDurationEl.addEventListener('change', () => {
+			getCountdownDuration();
+		});
+	}
+
+	if (timerSettings.soundCheckbox) {
+		timerSettings.soundCheckbox.addEventListener('change', () => {
+			checkSoundsCheckbox();
+		});
+	}
+
+	if (timerSettings.focusCheckbox) {
+		timerSettings.focusCheckbox.addEventListener('change', () => {
+			checkFocusCheckbox();
+		});
+	}
+
+	if (timerSettings.themeDropdown) {
+		timerSettings.themeDropdown.addEventListener('change', () => {
+			checkThemeDropdown();
+		});
+	}
+
+	if (timerSettings.selectPuzzleEl) {
+		timerSettings.selectPuzzleEl.addEventListener('change', () => {
+			selectPuzzle();
+		});
+	}
+
 	document.addEventListener('keydown', event => {
 		if (event.key === 'Escape') {
 			escPressed();
@@ -79,10 +96,6 @@ const init = () => {
 		if (event.target.id === 'settings-button') {
 			console.log('#settings-button clicked');
 			settingsModal();
-		}
-		if (event.target.id === 'help-button') {
-			console.log('#help-button clicked');
-			infoModal();
 		}
 	});
 	document.addEventListener('touchend', event => {

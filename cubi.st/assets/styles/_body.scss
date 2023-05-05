@@ -7,6 +7,7 @@ body {
 	background-repeat: no-repeat;
 	background-position: -60px bottom;
 	background-size: 200px auto;
+	background-attachment: fixed;
 
 	&.modal-visible {
 		background-image: none;

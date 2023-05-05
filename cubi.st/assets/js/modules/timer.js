@@ -4,25 +4,29 @@ import {storeTime, removeNewClass} from './times.js';
 import {showScramble} from './scramble.js';
 
 const initTimerButton = () => {
-	const newButton = document.createElement('button');
-	newButton.id = 'timer';
-	newButton.innerHTML = timerSettings.timerEl.innerHTML;
-	timerSettings.timerEl.parentNode.replaceChild(newButton, timerSettings.timerEl);
-	timerSettings.timerEl = newButton;
+	if (timerSettings.timerEl) {
+		const newButton = document.createElement('button');
+		newButton.id = 'timer';
+		newButton.innerHTML = timerSettings.timerEl.innerHTML;
+		timerSettings.timerEl.parentNode.replaceChild(newButton, timerSettings.timerEl);
+		timerSettings.timerEl = newButton;
+	}
 };
 
 const hardStop = () => {
-	console.log('HARD STOP');
-	window.clearInterval(timerSettings.timerIntervalVar);
-	timerSettings.timerEl.innerHTML = timerSettings.defaultState;
-	timerSettings.timerRunning = false;
-	timerSettings.cooldown = false;
-	removeNewClass();
-	document.body.classList.remove('countdownRunning');
-	document.body.classList.remove('timerRunning');
-	timerSettings.countdownRunning = false;
-	timerSettings.timerEl.focus();
-	showScramble();
+	if (timerSettings.timerEl) {
+		console.log('HARD STOP');
+		window.clearInterval(timerSettings.timerIntervalVar);
+		timerSettings.timerEl.innerHTML = timerSettings.defaultState;
+		timerSettings.timerRunning = false;
+		timerSettings.cooldown = false;
+		removeNewClass();
+		document.body.classList.remove('countdownRunning');
+		document.body.classList.remove('timerRunning');
+		timerSettings.countdownRunning = false;
+		timerSettings.timerEl.focus();
+		showScramble();
+	}
 };
 
 const checkTimer = () => {

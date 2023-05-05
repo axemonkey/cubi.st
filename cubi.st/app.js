@@ -22,11 +22,11 @@ cubistApp.set('views', `${appFolder}/views`);
 cubistApp.set('view engine', 'hbs');
 cubistApp.use(express.static(`${appFolder}/public`));
 
-const renderMain = (res, isDebug) => {
+const renderPage = (res, page, isDebug) => {
 	const debugClass = (isDebug ? 'debug' : '');
 	res.setHeader('Cache-Control', 'max-age=1');
 	res.setHeader('Content-Security-Policy', `script-src 'self' 'unsafe-inline' 'unsafe-eval' https://storage.ko-fi.com`);
-	res.render('index', {
+	res.render(page, {
 		title,
 		headline: titleVars.siteName,
 		strapLine: strap,
@@ -36,14 +36,18 @@ const renderMain = (res, isDebug) => {
 };
 
 cubistApp.get('/', (req, res) => {
-	renderMain(res, false);
+	renderPage(res, 'index', false);
 });
 
 cubistApp.get('/:page?', (req, res) => {
 	const page = req.params.page;
 
 	if (page === 'debug') {
-		renderMain(res, true);
+		renderPage(res, 'index', true);
+	}
+
+	if (['help', 'settings'].includes(page)) {
+		renderPage(res, page, false);
 	}
 });
 

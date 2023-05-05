@@ -23,14 +23,7 @@ const checkThemeDropdown = () => {
 };
 
 const getThemes = () => {
-	const themeOptions = timerSettings.themeDropdown.querySelectorAll('option');
-	const themes = [];
-
-	for (const themeOption of themeOptions) {
-		themes.push(themeOption.value);
-	}
-
-	return themes;
+	return timerSettings.themesAvailable;
 };
 
 const clearTheme = () => {
@@ -42,11 +35,13 @@ const clearTheme = () => {
 };
 
 const setThemeDropdown = () => {
-	const themeOptions = timerSettings.themeDropdown.querySelectorAll('option');
+	if (timerSettings.themeDropdown) {
+		const themeOptions = timerSettings.themeDropdown.querySelectorAll('option');
 
-	for (const themeOption of themeOptions) {
-		if (themeOption.value === timerSettings.theme) {
-			themeOption.selected = true;
+		for (const themeOption of themeOptions) {
+			if (themeOption.value === timerSettings.theme) {
+				themeOption.selected = true;
+			}
 		}
 	}
 };

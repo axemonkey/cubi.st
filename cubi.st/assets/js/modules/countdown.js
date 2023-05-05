@@ -8,11 +8,14 @@ const initCountdownDuration = () => {
 		duration = Number(timerSettings.configObj.countdownDuration);
 	}
 	timerSettings.countdownDuration = duration;
-	for (const elem of timerSettings.countdownDurationEl.querySelectorAll('option')) {
-		const dropdownOption = elem;
-		dropdownOption.selected = false;
+
+	if (timerSettings.countdownDurationEl) {
+		for (const elem of timerSettings.countdownDurationEl.querySelectorAll('option')) {
+			const dropdownOption = elem;
+			dropdownOption.selected = false;
+		}
+		timerSettings.countdownDurationEl.querySelector('#duration' + duration).selected = true;
 	}
-	timerSettings.countdownDurationEl.querySelector('#duration' + duration).selected = true;
 };
 
 const getCountdownDuration = () => {

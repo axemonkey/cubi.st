@@ -39,15 +39,6 @@ button {
 	@include button;
 }
 
-#help-button {
-	cursor: pointer;
-	position: absolute;
-	right: 1em;
-	top: 1em;
-
-	@include buttonBg;
-}
-
 #settings-button {
 	flex: 0 0 1;
 	cursor: pointer;

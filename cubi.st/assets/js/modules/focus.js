@@ -8,8 +8,11 @@ const initFocus = () => {
 	}
 
 	timerSettings.focusOn = focus;
-	timerSettings.focusCheckbox.checked = focus;
 	console.log(`timerSettings.focusOn: ${timerSettings.focusOn}`);
+
+	if (timerSettings.focusCheckbox) {
+		timerSettings.focusCheckbox.checked = focus;
+	}
 };
 
 const checkFocusCheckbox = () => {
