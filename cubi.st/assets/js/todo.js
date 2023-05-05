@@ -7,21 +7,26 @@ TODO
 * hide everything when inspection starts, not when solving starts
 
 * GET RID OF MODALS
-  * replace settings and instructions/about with 2 new pages
+  * put settings on a separate page
+  * put instructions/about on a separate page
+  * put view all times on a separate page
+  * put delete all times modal INLINE
   * see https://modalzmodalzmodalz.com for more
   * this will help with making it work on small screens too
 
 * link colours in copy. underlines alone are not enough
 * make it work on smaller screens – currently doesn't even fit on laptop screen
   * including phone! portrait layout
+
 * make sure fonts are sized in rems – this might get seen by lots of people!
 * theme chooser
   * font chooser – include comic sans for ADHD users
   * also Atkinson Hyperlegible: https://brailleinstitute.org/freefont
   * not just dark/light theme – colour balance for ADHD
 
-* fix modals for touch users
-* can't tab to links in modal??
+* these ones go away when modals are removed
+  * fix modals for touch users
+  * can't tab to links in modal??
 
 WISHLIST / NICE TO HAVES
 
