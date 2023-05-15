@@ -76,6 +76,12 @@ body.js.timerRunning {
 	width: auto;
 }
 
+.content {
+	margin: 40px auto 0;
+	padding: 30px;
+	background: $dark-panel-color;
+}
+
 @media (min-width: $breakpoint) {
 	aside {
 		body.js & {
@@ -94,10 +100,8 @@ body.js.timerRunning {
 	#averages-list {
 		flex: 0 1 auto;
 	}
-}
 
-.content {
-	margin-top: 40px;
-	padding: 30px;
-	background: $dark-panel-color;
+	.content {
+		width: 60vw;
+	}
 }

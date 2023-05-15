@@ -92,8 +92,8 @@ const init = () => {
 			console.log('CANCEL');
 			hardStop();
 		}
-		if (event.target.id === 'show-more-button') {
-			console.log('#show-more-button clicked');
+		if (event.target.id === 'show-more-link') {
+			console.log('#show-more-link clicked');
 			timesListModal();
 		}
 		if (event.target.id === 'settings-button') {

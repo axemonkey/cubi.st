@@ -4,6 +4,8 @@ TODO
 
 * RESOLVE CIRCULAR DEPENDECIES - probably break up files into smaller ones
 
+* alerts? e.g. "Settings saved"
+
 * GET RID OF MODALS
   * put settings on a separate page
   * put instructions/about on a separate page

@@ -50,7 +50,7 @@ const getTimesForPuzzle = newTime => {
 		const listPrefix = `<div id="times-container"><h2>Times for ${timerSettings.puzzle}</h2><button id="clear-times">Clear</button><div id="times-list-outer"><ul id="times-list">`;
 		let listSuffix = '</ul>';
 		if (showMoreLink) {
-			listSuffix += '<button id="show-more-button">View all</button>';
+			listSuffix += `<a id="show-more-link" href="/times/${timerSettings.puzzle}">View all</a>`;
 		}
 		listSuffix += '</div></div>';
 
