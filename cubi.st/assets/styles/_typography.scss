@@ -47,18 +47,6 @@ p {
 	margin: 0 0 1em;
 }
 
-a {
-	color: $dark-link-color;
-	font-family: $monospaceFont;
-	display: inline-block;
-	border-radius: 3px;
-
-	&:hover {
-		background-color: $dark-link-color;
-		color: $dark-bg-color;
-	}
-}
-
 .content {
 	line-height: 1.5;
 	font-size: 1.25rem;

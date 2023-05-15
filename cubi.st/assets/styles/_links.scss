@@ -1,4 +1,16 @@
+a {
+	color: $dark-link-color;
+	display: inline-block;
+	border-radius: 3px;
+
+	&:hover {
+		background-color: $dark-link-color;
+		color: $dark-bg-color;
+	}
+}
+
 .big-link {
+	font-family: $monospaceFont;
 	font-size: 1.5rem;
 	padding: 0.5em;
 }

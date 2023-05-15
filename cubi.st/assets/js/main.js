@@ -8,9 +8,10 @@ import {initTheme, checkThemeDropdown} from './modules/theme.js';
 import {initPuzzle, selectPuzzle} from './modules/puzzle.js';
 import {spacePressed, escPressed, onFirstHover} from './modules/events.js';
 import {settingsModal, timesListModal} from './modules/modals.js';
-import {deleteTime, clearTimes} from './modules/times.js';
+import {deleteTime, clearTimes, getTimesForPuzzle} from './modules/times.js';
 import {initOptions} from './modules/options.js';
 import {initTimerButton, hardStop} from './modules/timer.js';
+import {showScramble} from './modules/scramble.js';
 
 const init = () => {
 	console.log('init timer js');
@@ -26,6 +27,8 @@ const init = () => {
 	initTheme();
 	initPuzzle();
 	initOptions();
+	showScramble();
+	getTimesForPuzzle();
 
 	if (timerSettings.timerEl) {
 		timerSettings.timerEl.innerHTML = timerSettings.defaultState;

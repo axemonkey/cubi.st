@@ -4,7 +4,6 @@ TODO
 
 * RESOLVE CIRCULAR DEPENDECIES - probably break up files into smaller ones
 
-* hide everything when inspection starts, not when solving starts
 
 * GET RID OF MODALS
   * put settings on a separate page
@@ -37,6 +36,7 @@ WISHLIST / NICE TO HAVES
 
 TO DONE
 
+* hide everything when inspection starts, not when solving starts
 * option/setting to not show timer when running – possibly less distracting
 * finish instructions content
 * include full details of the scramble moves and averages stuff that is otherwise only available on hover
