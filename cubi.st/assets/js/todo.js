@@ -4,7 +4,6 @@ TODO
 
 * RESOLVE CIRCULAR DEPENDECIES - probably break up files into smaller ones
 
-
 * GET RID OF MODALS
   * put settings on a separate page
   * put instructions/about on a separate page
@@ -12,6 +11,9 @@ TODO
   * put delete all times modal INLINE
   * see https://modalzmodalzmodalz.com for more
   * this will help with making it work on small screens too
+
+* LINKS? BUTTONS? Make UI decisions about what is a link and what is a button
+  * Think about "affordance"
 
 * link colours in copy. underlines alone are not enough
 * make it work on smaller screens – currently doesn't even fit on laptop screen
