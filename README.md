@@ -1,13 +1,15 @@
-## Build and watch
+## Build, compile, lint and watch
 
 `npm run dev`
 
-## Serve locally
+## Serve locally (or on Github Pages)
 
-`npm run servedev`
+`npm run start`
 
-http://localhost:7777
+Uses Eleventy.
 
-## Deploy to Fly
+http://localhost:8080
 
-`fly deploy`
+## Deploys to
+
+https://cubi.st/

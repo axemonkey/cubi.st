@@ -80,6 +80,7 @@ body.js.timerRunning {
 	margin: 40px auto 0;
 	padding: 30px;
 	background: $dark-panel-color;
+	max-width: 1200px;
 }
 
 @media (min-width: $breakpoint) {

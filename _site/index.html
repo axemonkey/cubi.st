@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+	<title>Cubist - 11ty version</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<!-- styles-->
+	<link rel="stylesheet" href="/public/css/cubist.css">
+	<!-- favicons-->
+	<link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/public/images/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="57x57" href="/public/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/public/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/public/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/public/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/public/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/public/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/public/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/public/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/public/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/public/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/public/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/public/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/public/images/favicon/favicon-16x16.png">
+	<meta name="msapplication-TileImage" content="/public/images/favicon/ms-icon-144x144.png">
+</head>
+
+<body>
+	<div class="wrapper">
+
+	<main>
+
+		<header>
+			<h1>
+				<span class="siteName">Cubist</span>
+				<span class="strap">:: A speed cubing timer</span>
+			</h1>
+		</header>
+
+		<section id="timer-section">
+		
+			<section id="puzzle-details">
+				<p id="options"></p>
+		
+				<a class="big-link" id="settings-link" href="/settings">Settings</a>
+			</section>
+		
+			<p id="timer">This won't work without JavaScript, sorry...</p>
+		
+			<button id="cancel-button">
+				Cancel (Esc)
+			</button>
+		
+			<div id="scramble-container">
+				<h2><span class="puzzle"></span> scramble:</h2>
+				<div id="scramble"></div>
+			</div>
+		
+		</section>
+
+	</main>
+
+	<aside id="times">
+
+		<p>times...</p>
+
+	</aside>
+
+	<section id="debug">
+		<ul>
+			<li><button id="getConfig">Get config</button></li>
+			<li><button id="setConfig">Set config</button></li>
+			<li><button id="deleteConfig">Delete config</button></li>
+			<li><button id="logTimes">Log all times</button></li>
+			<li><button id="deleteTimes">Delete all times</button></li>
+		</ul>
+	</section>
+
+</div>
+
+
+<a class="nav-link big-link" id="help-link" href="/help">Help</a>
+
+<section class="support">
+	<p>&copy; <a href="https://clivemurray.com/">Clive Murray</a></p>
+	<a href="https://ko-fi.com/X8X120MQ6" target="_blank"><img height="36" style="border:0px;height:36px;" src="https://storage.ko-fi.com/cdn/kofi2.png?v=3" border="0" alt="Buy Me a Coffee at ko-fi.com" /></a>
+</section>
+
+<audio id="sounds-ping">
+	<source src="/public/sounds/beep-hightone.mp3" type="audio/mpeg"></audio><audio id="sounds-finished">
+	<source src="/public/sounds/beep-organ.mp3" type="audio/mpeg"></audio><audio id="sounds-startTimer">
+	<source src="/public/sounds/beep-warmguitar.mp3" type="audio/mpeg"></audio><audio id="sounds-startCountdown">
+	<source src="/public/sounds/beep-holdtone.mp3" type="audio/mpeg">
+</audio>
+
+
+<script src="/public/js/vendor.js"></script>
+
+<script nomodule src="/public/js/es5bundle.main.js"></script>
+<script type="module" src="/public/js/main.js"></script>
+<div class="modal micromodal-slide" id="delete-times-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+			<header class="modal__header">
+				<h2 class="modal__title" id="modal-1-title">
+					Delete times for <span class="puzzle">puzzle</span>
+				</h2>
+			</header>
+			<main class="modal__content" id="modal-1-content">
+				<p>
+					Are you sure you want to delete <strong>all</strong> your stored times for <span class="puzzle">puzzle</span>?
+				</p>
+			</main>
+			<footer class="modal__footer">
+				<button class="modal__btn modal__btn-primary delete_times_yes_button">Yes, delete them</button>
+				<button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">No, keep them</button>
+			</footer>
+		</div>
+	</div>
+</div>
+<div class="modal micromodal-slide" id="times-list-modal" aria-hidden="true">
+	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
+		<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+			<header class="modal__header">
+				<h2 class="modal__title" id="modal-1-title">
+					All times for <span class="puzzle">puzzle</span>
+				</h2>
+			</header>
+			<main class="modal__content" id="modal-1-content">
+				<ul id="times-modal-list">
+				</ul>
+			</main>
+			<footer class="modal__footer">
+				<button class="modal__btn" data-micromodal-close aria-label="Close this dialog window">Close</button>
+			</footer>
+		</div>
+	</div>
+</div>
+
+</body>
+
+</html>

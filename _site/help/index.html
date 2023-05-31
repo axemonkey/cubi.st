@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+	<title>Cubist - 11ty version - Help</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<!-- styles-->
+	<link rel="stylesheet" href="/public/css/cubist.css">
+	<!-- favicons-->
+	<link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/public/images/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="57x57" href="/public/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/public/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/public/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/public/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/public/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/public/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/public/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/public/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/public/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/public/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/public/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/public/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/public/images/favicon/favicon-16x16.png">
+	<meta name="msapplication-TileImage" content="/public/images/favicon/ms-icon-144x144.png">
+</head>
+
+<body>
+	<div class="wrapper">
+
+	<main>
+
+		<header>
+			<h1>
+				<span class="siteName">Cubist</span>
+				<span class="strap">:: Help</span>
+			</h1>
+		</header>
+
+		<section class="content">
+
+			<h2>Instructions</h2>
+
+			<p>You can click/tap the start button, or you can use your SPACE bar if you have one. Hit it again to stop. When the timer starts, the button will enlarge to fill the screen to make it easier to hit when you finish!</p>
+			<p>Your times will be recorded against each puzzle seperately, and <a href="https://ruwix.com/the-rubiks-cube/cubing-terminology-abbreviations-commonly-used-expressions/#aos">averages</a> will be calculated if enough solves have been logged. All this data will be stored in your browser's local storage (cookies). You may delete any single anomolous time by clicking/tapping ‘Delete’ next to it, or clear your entire list of times per puzzle by clicking/tapping ‘Clear’.</p>
+			<p><strong>NB:</strong> Use of this site implies that you agree to the use of cookies/local storage to store your results and settings on your computer/device. There is no “cookie banner” on this site because they are pointless and annoying.</p>
+
+
+			<h2>Scrambles</h2>
+
+			<p>Below the start button there is a list of scramble moves so you can give your puzzle a good mixup for you to solve. There are a few small differences in notation systems, so to avoid any confusion this is the system Cubist uses:</p>
+			<ul>
+				<li>the face to turn is indicated by the letter F, B, L, R, U or D for front, back, left, right, up (top) or down (bottom) respectively</li>
+				<li>if the face is <strong>not</strong> followed by a ’ (apostrophe) character, turn it clockwise 90º</li>
+				<li>if the face <strong>is</strong> followed by a ’ (apostrophe) character, turn it anti-clockwise 90º</li>
+				<li>if the face is followed by a 2, turn it 180º (doesn’t matter which way!)</li>
+				<li>if there is a number before the face letter, then turn that many layers; if not then just turn 1 layer (this only applies to 4x4x4 and larger)</li>
+			</ul>
+			<p>For example:</p>
+			<ul>
+				<li><strong>R</strong> indicates you should turn the rightmost layer 90º clockwise</li>
+				<li><strong>U’</strong> indicates you should turn the top layer 90º anti-clockwise</li>
+				<li><strong>L2</strong> indicates you should turn the leftmost layer 180º</li>
+				<li><strong>2B</strong> indicates you should turn the back two layers 90º clockwise</li>
+				<li><strong>2R2</strong> indicates you should turn the rightmost two layers 180º</li>
+			</ul>
+			<p>A new scramble is generated after every solve attempt, when you select a different puzzle, or when you reload the page.</p>
+
+
+			<h2>Settings</h2>
+
+			<p>On the settings page you can:</p>
+			<ul>
+				<li>select which puzzle you are solving</li>
+				<li>set your inspection time (in <a href="https://www.worldcubeassociation.org/">WCA</a> competitions you get <a href="https://www.worldcubeassociation.org/regulations/#A3a1">15 seconds maximum</a>)</li>
+				<li>select a theme</li>
+				<li>switch audio cues on/off</li>
+				<li>switch “focus mode” on/off</li>
+			</ul>
+			<p>Audio cues are intended to help you start on time without having to look at your screen during inspection.</p>
+			<p>In “focus mode” the timer will not be displayed during solving.</p>
+
+
+			<h2>FAQs</h2>
+
+			<dl>
+				<dt><strong>“Why did you create Cubist?”</strong></dt>
+				<dd>I am aware there are other cube timing sites out there, but I couldn’t find one that met all my requirements, so I wrote my own. One of these requirements was audio cues. I wanted to spend my inspection time inspecting, not looking at the screen watching a countdown.</dd>
+				<dt><strong>“How are the scrambles generated?”</strong></dt>
+				<dd>The scrambling system on Cubist is written from scratch and simply generates a random list of moves appropriate to the size of puzzle chosen. However, unlike other scramblers out there, Cubist will never provide two consecutive scramble moves in the same axis. So you will never see a R move followed by a L, nor a U followed by a D, nor a F followed by a B. I believe this gives a more thorough scramble.</dd>
+				<dt><strong>“Cubist isn’t working on my computer/device! You’re a bad programmer!”</strong></dt>
+				<dd>Technically that isn’t a question, but I feel your frustration! Cubist is a spare-time project of someone with very little spare time, and I’m sorry if it isn’t working well for you. Get in touch and I’ll try and address the issue when I can!</dd>
+				<dt><strong>“What’s with the lamp?”</strong></dt>
+				<dd>When I had the basic framework of this site up and running I showed it to a friend. Superficially it looked alright, though there was a lot of functionality still to come. I complained about not having much time to work on the look and feel of the site, and he said it looked fine as it was, but I felt it needed more decoration. Jokingly, he suggested sticking a lamp in the corner “to spruce the place up”. So I did.</dd>
+				<dt><strong>“I have feedback, how can I contact you?”</strong></dt>
+				<dd>Feel free to get in touch via <a href="mailto:twist@cubi.st">email</a> or <a href="https://metalhead.club/@axemonkey">Mastodon</a>.</dd>
+			</dl>
+
+		</section>
+
+	</main>
+
+</div>
+
+<a class="nav-link big-link" id="home-link" href="/">Back</a>
+
+</body>
+
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+
+<head>
+	<title>Cubist - 11ty version - Settings</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<!-- styles-->
+	<link rel="stylesheet" href="/public/css/cubist.css">
+	<!-- favicons-->
+	<link rel="shortcut icon" href="/public/images/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/public/images/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" sizes="57x57" href="/public/images/favicon/apple-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/public/images/favicon/apple-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/public/images/favicon/apple-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/public/images/favicon/apple-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/public/images/favicon/apple-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/public/images/favicon/apple-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/public/images/favicon/apple-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/public/images/favicon/apple-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/public/images/favicon/apple-icon-180x180.png">
+	<link rel="icon" type="image/png" sizes="192x192" href="/public/images/favicon/android-icon-192x192.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/public/images/favicon/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="96x96" href="/public/images/favicon/favicon-96x96.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/public/images/favicon/favicon-16x16.png">
+	<meta name="msapplication-TileImage" content="/public/images/favicon/ms-icon-144x144.png">
+</head>
+
+<body>
+	<div class="wrapper">
+
+	<main>
+
+		<header>
+			<h1>
+				<span class="siteName">Cubist</span>
+				<span class="strap">:: Settings</span>
+			</h1>
+		</header>
+
+		<section class="content">
+
+			<section id="config">
+			
+				<section id="puzzle">
+					<label for="select-puzzle">Puzzle</label>
+					<select id="select-puzzle">
+						<option id="puzzle_2x2x2" value="2x2x2">2x2x2</option>
+						<option id="puzzle_3x3x3" value="3x3x3" selected="selected">3x3x3</option>
+						<option id="puzzle_4x4x4" value="4x4x4">4x4x4</option>
+						<option id="puzzle_5x5x5" value="5x5x5">5x5x5</option>
+						<option id="puzzle_6x6x6" value="6x6x6">6x6x6</option>
+						<option id="puzzle_7x7x7" value="7x7x7">7x7x7</option>
+					</select>
+				</section>
+			
+				<section>
+					<label for="countdown-duration">Inspection time</label>
+					<select id="countdown-duration">
+						<option id="duration0" value="0">None</option>
+						<option id="duration3" value="3">3 seconds</option>
+						<option id="duration5" value="5">5 seconds</option>
+						<option id="duration10" value="10">10 seconds</option>
+						<option id="duration15" value="15" selected="selected">15 seconds</option>
+					</select>
+				</section>
+			
+				<section id="theme">
+					<label for="theme-dropdown">Theme</label>
+					<select id="theme-dropdown">
+						<option value="Dark">Dark</option>
+						<option value="Light">Light</option>
+						<option value="Newspaper">Newspaper</option>
+						<option value="Trinity">Trinity</option>
+						<option value="ADHD">ADHD</option>
+					</select>
+				</section>
+			
+				<section id="sounds">
+					<input id="sound-checkbox" type="checkbox" checked="checked">
+					<label for="sound-checkbox" class="checkbox-label" title="Provides audio cues">Sound</label>
+				</section>
+			
+				<section id="focus">
+					<input id="focus-checkbox" type="checkbox">
+					<label for="focus-checkbox" class="checkbox-label" title="Hides the timer while solving">Focus mode</label>
+				</section>
+			
+			</section>
+
+		</section>
+
+	</main>
+
+</div>
+
+<a class="nav-link big-link" id="home-link" href="/">Back</a>
+
+
+<script src="/public/js/vendor.js"></script>
+
+<script nomodule src="/public/js/es5bundle.main.js"></script>
+<script type="module" src="/public/js/main.js"></script>
+
+</body>
+
+</html>

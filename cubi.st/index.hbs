@@ -1,0 +1,35 @@
+---
+layout: main.hbs
+title: Cubist - 11ty version
+headline: Cubist
+strapLine: A speed cubing timer
+---
+<div class="wrapper">
+
+	<main>
+
+		{{> header }}
+
+		{{> timer }}
+
+	</main>
+
+	<aside id="times">
+
+		{{> times }}
+
+	</aside>
+
+	{{> config/debug }}
+
+</div>
+
+
+{{> helpLink }}
+
+{{> supportButton }}
+
+{{> sounds }}
+{{> script }}
+{{> deleteTimesModal }}
+{{> timesListModal }}

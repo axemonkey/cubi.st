@@ -1,9 +1,9 @@
-import {cubistApp} from './cubi.st/app.js';
+// import {cubistApp} from './cubi.st/app.js';
 
-const env = process.env.NODE_ENV || 'development';
+// const env = process.env.NODE_ENV || 'development';
 
-if (env === 'development') {
-	cubistApp.listen(7777);
-} else if (env === 'production') {
-	cubistApp.listen(process.env.PORT);
-}
+// if (env === 'development') {
+// 	cubistApp.listen(7777);
+// } else if (env === 'production') {
+// 	cubistApp.listen(process.env.PORT);
+// }
