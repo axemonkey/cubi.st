@@ -2,7 +2,7 @@ module.exports = function (eleventyConfig) {
 	eleventyConfig.addPassthroughCopy('cubi.st/public');
 	eleventyConfig.setUseGitIgnore(false);
 	eleventyConfig.setServerOptions({
-		liveReload: false,
+		// liveReload: false,
 		watch: [
 			'cubi.st/public/**/*',
 		],
