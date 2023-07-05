@@ -430,33 +430,6 @@
 	  timerSettings.modalVisible = false;
 	  timerSettings.timerEl.focus();
 	};
-	const settingsModal = () => {
-	  MicroModal.show('settings-modal', {
-	    debugMode: true,
-	    disableScroll: true,
-	    onShow: () => {
-	      onShowModal();
-	    },
-	    onClose: () => {
-	      onCloseModal();
-	    }
-	  });
-	  timerSettings.modalVisible = true;
-	};
-	const timesListModal = () => {
-	  listTimesForModal();
-	  MicroModal.show('times-list-modal', {
-	    debugMode: true,
-	    disableScroll: true,
-	    onShow: () => {
-	      onShowModal();
-	    },
-	    onClose: () => {
-	      onCloseModal();
-	    }
-	  });
-	  timerSettings.modalVisible = true;
-	};
 	const listTimesForModal = () => {
 	  const times = timerSettings.timesObj[timerSettings.puzzle];
 	  const modal = document.querySelector("#".concat(timerSettings.timesListModalId));
@@ -478,6 +451,36 @@
 	    listItems += listEl;
 	  }
 	  timesList.innerHTML = listItems;
+	};
+	const initTimesList = () => {
+	  // move this into a new file when modals.js disappears
+	  // or maybe just move it into times.js lol wtf bbq
+
+	  const timesList = document.querySelector('#times-full-list');
+	  if (timesList) {
+	    populateTimesObj();
+	    const times = timerSettings.timesObj[timerSettings.puzzle];
+	    const spans = document.querySelectorAll('.puzzle');
+	    console.log('-----> initTimesList');
+	    console.log('\n\n-----> BIG DUMP\n\n');
+	    console.log(timerSettings.timesObj);
+	    console.log('\n\n-----> END BIG DUMP\n\n');
+	    console.log("timerSettings.puzzle: ".concat(timerSettings.puzzle));
+	    console.log(times);
+	    for (const span in spans) {
+	      if (Object.prototype.hasOwnProperty.call(spans, span)) {
+	        console.log("span: ".concat(span));
+	        spans[span].textContent = timerSettings.puzzle;
+	      }
+	    }
+	    let listItems = '';
+	    for (let index = times.length - 1; index >= 0; index--) {
+	      const time = times[index];
+	      const listEl = "<li><span class=\"count\">".concat(lz(index + 1, 4), ":</span> <span class=\"time\">").concat(time.time, "</span> <span class=\"timestamp\">").concat(time.timestamp, "</span> <button class=\"deleteTime\" data-timeindex=\"").concat(index, "\">Delete</button></li>");
+	      listItems += listEl;
+	    }
+	    timesList.innerHTML = listItems;
+	  }
 	};
 
 	const setupForPuzzle = () => {
@@ -600,14 +603,17 @@
 	  });
 	  timerSettings.modalVisible = true;
 	};
+	const populateTimesObj = () => {
+	  const ls = localStorage.getItem(timerSettings.timesStorageItem);
+	  const timesObjString = ls || '{}';
+	  timerSettings.timesObj = JSON.parse(timesObjString);
+	};
 	const getTimesForPuzzle = newTime => {
 	  const timesPanel = document.querySelector('#times');
 	  if (timesPanel) {
 	    console.log('getting times');
-	    const ls = localStorage.getItem(timerSettings.timesStorageItem);
-	    const timesObjString = ls || '{}';
 	    let timesArray = [];
-	    timerSettings.timesObj = JSON.parse(timesObjString);
+	    populateTimesObj();
 	    if (timerSettings.timesObj[timerSettings.puzzle]) {
 	      timesArray = timerSettings.timesObj[timerSettings.puzzle];
 	    }
@@ -626,7 +632,7 @@
 	    const listPrefix = "<div id=\"times-container\"><h2>Times for ".concat(timerSettings.puzzle, "</h2><button id=\"clear-times\">Clear</button><div id=\"times-list-outer\"><ul id=\"times-list\">");
 	    let listSuffix = '</ul>';
 	    if (showMoreLink) {
-	      listSuffix += "<a id=\"view-all-link\" href=\"/times/".concat(timerSettings.puzzle, "\">View all</a>");
+	      listSuffix += "<a id=\"view-all-link\" href=\"/times/?puzzle=".concat(timerSettings.puzzle, "\">View all</a>");
 	    }
 	    listSuffix += '</div></div>';
 	    let listItems = '';
@@ -955,6 +961,7 @@
 	  initOptions();
 	  showScramble();
 	  getTimesForPuzzle();
+	  initTimesList();
 	  if (timerSettings.timerEl) {
 	    timerSettings.timerEl.innerHTML = timerSettings.defaultState;
 	    timerSettings.timerEl.addEventListener('click', event => {
@@ -1010,15 +1017,16 @@
 	      console.log('CANCEL');
 	      hardStop();
 	    }
-	    if (event.target.id === 'view-all-link') {
-	      console.log('#view-all-link clicked');
-	      timesListModal();
-	    }
-	    if (event.target.id === 'settings-button') {
-	      console.log('#settings-button clicked');
-	      settingsModal();
-	    }
+	    // if (event.target.id === 'view-all-link') {
+	    // 	console.log('#view-all-link clicked');
+	    // 	timesListModal();
+	    // }
+	    // if (event.target.id === 'settings-button') {
+	    // 	console.log('#settings-button clicked');
+	    // 	settingsModal();
+	    // }
 	  });
+
 	  document.addEventListener('touchend', event => {
 	    if (timerSettings.countdownRunning || timerSettings.timerRunning) {
 	      event.preventDefault();

@@ -18,16 +18,21 @@ const clearTimesDialog = () => {
 	timerSettings.modalVisible = true;
 };
 
+const populateTimesObj = () => {
+	const ls = localStorage.getItem(timerSettings.timesStorageItem);
+	const timesObjString = ls || '{}';
+	timerSettings.timesObj = JSON.parse(timesObjString);
+};
+
 const getTimesForPuzzle = newTime => {
 	const timesPanel = document.querySelector('#times');
 
 	if (timesPanel) {
 		console.log('getting times');
-		const ls = localStorage.getItem(timerSettings.timesStorageItem);
-		const timesObjString = ls || '{}';
 		let timesArray = [];
 
-		timerSettings.timesObj = JSON.parse(timesObjString);
+		populateTimesObj();
+
 		if (timerSettings.timesObj[timerSettings.puzzle]) {
 			timesArray = timerSettings.timesObj[timerSettings.puzzle];
 		}
@@ -50,7 +55,7 @@ const getTimesForPuzzle = newTime => {
 		const listPrefix = `<div id="times-container"><h2>Times for ${timerSettings.puzzle}</h2><button id="clear-times">Clear</button><div id="times-list-outer"><ul id="times-list">`;
 		let listSuffix = '</ul>';
 		if (showMoreLink) {
-			listSuffix += `<a id="view-all-link" href="/times/${timerSettings.puzzle}">View all</a>`;
+			listSuffix += `<a id="view-all-link" href="/times/?puzzle=${timerSettings.puzzle}">View all</a>`;
 		}
 		listSuffix += '</div></div>';
 
@@ -142,4 +147,4 @@ const storeTime = () => {
 	getTimesForPuzzle(true);
 };
 
-export {getTimesForPuzzle, deleteTime, clearTimes, storeTime, removeNewClass};
+export {getTimesForPuzzle, deleteTime, clearTimes, storeTime, removeNewClass, populateTimesObj};

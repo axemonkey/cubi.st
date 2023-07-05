@@ -7,7 +7,7 @@ import {initFocus, checkFocusCheckbox} from './modules/focus.js';
 import {initTheme, checkThemeDropdown} from './modules/theme.js';
 import {initPuzzle, selectPuzzle} from './modules/puzzle.js';
 import {spacePressed, escPressed, onFirstHover} from './modules/events.js';
-import {settingsModal, timesListModal} from './modules/modals.js';
+import {initTimesList} from './modules/modals.js';
 import {deleteTime, clearTimes, getTimesForPuzzle} from './modules/times.js';
 import {initOptions} from './modules/options.js';
 import {initTimerButton, hardStop} from './modules/timer.js';
@@ -29,6 +29,7 @@ const init = () => {
 	initOptions();
 	showScramble();
 	getTimesForPuzzle();
+	initTimesList();
 
 	if (timerSettings.timerEl) {
 		timerSettings.timerEl.innerHTML = timerSettings.defaultState;
@@ -92,14 +93,14 @@ const init = () => {
 			console.log('CANCEL');
 			hardStop();
 		}
-		if (event.target.id === 'view-all-link') {
-			console.log('#view-all-link clicked');
-			timesListModal();
-		}
-		if (event.target.id === 'settings-button') {
-			console.log('#settings-button clicked');
-			settingsModal();
-		}
+		// if (event.target.id === 'view-all-link') {
+		// 	console.log('#view-all-link clicked');
+		// 	timesListModal();
+		// }
+		// if (event.target.id === 'settings-button') {
+		// 	console.log('#settings-button clicked');
+		// 	settingsModal();
+		// }
 	});
 	document.addEventListener('touchend', event => {
 		if (timerSettings.countdownRunning || timerSettings.timerRunning) {
