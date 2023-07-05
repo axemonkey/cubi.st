@@ -35,32 +35,37 @@
 	<main>
 
 		<header>
-			<h1>
-				<span class="siteName">Cubist</span>
-				<span class="strap">:: A speed cubing timer</span>
-			</h1>
-		</header>
+	<h1>
+		<span class="siteName">Cubist</span>
+		<span class="strap">:: A speed cubing timer</span>
+	</h1>
+</header>
+
 
 		<section id="timer-section">
-		
-			<section id="puzzle-details">
-				<p id="options"></p>
-		
-				<a class="big-link" id="settings-link" href="/settings">Settings</a>
-			</section>
-		
-			<p id="timer">This won't work without JavaScript, sorry...</p>
-		
-			<button id="cancel-button">
-				Cancel (Esc)
-			</button>
-		
-			<div id="scramble-container">
-				<h2><span class="puzzle"></span> scramble:</h2>
-				<div id="scramble"></div>
-			</div>
-		
-		</section>
+
+	<section id="puzzle-details">
+		<p id="options"></p>
+
+		<a class="big-link" id="settings-link" href="/settings">Settings</a>
+
+	</section>
+
+	<p id="timer">This won't work without JavaScript, sorry...</p>
+
+	<button id="cancel-button">
+	Cancel (Esc)
+</button>
+
+
+	<div id="scramble-container">
+	<h2><span class="puzzle"></span> scramble:</h2>
+	<div id="scramble"></div>
+</div>
+
+
+</section>
+
 
 	</main>
 
@@ -68,27 +73,31 @@
 
 		<p>times...</p>
 
+
 	</aside>
 
 	<section id="debug">
-		<ul>
-			<li><button id="getConfig">Get config</button></li>
-			<li><button id="setConfig">Set config</button></li>
-			<li><button id="deleteConfig">Delete config</button></li>
-			<li><button id="logTimes">Log all times</button></li>
-			<li><button id="deleteTimes">Delete all times</button></li>
-		</ul>
-	</section>
+	<ul>
+		<li><button id="getConfig">Get config</button></li>
+		<li><button id="setConfig">Set config</button></li>
+		<li><button id="deleteConfig">Delete config</button></li>
+		<li><button id="logTimes">Log all times</button></li>
+		<li><button id="deleteTimes">Delete all times</button></li>
+	</ul>
+</section>
+
 
 </div>
 
 
 <a class="nav-link big-link" id="help-link" href="/help">Help</a>
 
+
 <section class="support">
 	<p>&copy; <a href="https://clivemurray.com/">Clive Murray</a></p>
 	<a href="https://ko-fi.com/X8X120MQ6" target="_blank"><img height="36" style="border:0px;height:36px;" src="https://storage.ko-fi.com/cdn/kofi2.png?v=3" border="0" alt="Buy Me a Coffee at ko-fi.com" /></a>
 </section>
+
 
 <audio id="sounds-ping">
 	<source src="/public/sounds/beep-hightone.mp3" type="audio/mpeg"></audio><audio id="sounds-finished">
@@ -98,10 +107,13 @@
 </audio>
 
 
+
+
 <script src="/public/js/vendor.js"></script>
 
 <script nomodule src="/public/js/es5bundle.main.js"></script>
 <script type="module" src="/public/js/main.js"></script>
+
 <div class="modal micromodal-slide" id="delete-times-modal" aria-hidden="true">
 	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
 		<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
@@ -122,6 +134,7 @@
 		</div>
 	</div>
 </div>
+
 <div class="modal micromodal-slide" id="times-list-modal" aria-hidden="true">
 	<div class="modal__overlay" tabindex="-1" data-micromodal-close>
 		<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
@@ -140,6 +153,7 @@
 		</div>
 	</div>
 </div>
+
 
 </body>
 

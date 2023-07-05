@@ -21,7 +21,7 @@ TODO
 
 * make sure fonts are sized in rems – this might get seen by lots of people!
 * theme chooser
-  * font chooser – include comic sans for ADHD users
+  * font chooser – include comic sans for ADHD users, inc Comic Mono for times etc.
   * also Atkinson Hyperlegible: https://brailleinstitute.org/freefont
   * not just dark/light theme – colour balance for ADHD
 

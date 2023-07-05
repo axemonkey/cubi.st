@@ -1,5 +1,5 @@
 ---
-layout: main.hbs
+layout: main
 title: Cubist - Settings
 headline: Cubist
 strapLine: Settings
@@ -8,11 +8,11 @@ strapLine: Settings
 
 	<main>
 
-		{{> header }}
+		{% include "header.njk" %}
 
 		<section class="content">
 
-			{{> config }}
+			{% include "config.njk" %}
 
 		</section>
 
@@ -20,5 +20,5 @@ strapLine: Settings
 
 </div>
 
-{{> homeLink }}
-{{> script }}
+{% include "homeLink.njk" %}
+{% include "script.njk" %}

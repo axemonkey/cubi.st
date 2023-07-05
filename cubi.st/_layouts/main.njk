@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html lang="en" class="{{{debugClass}}}">
+<html lang="en" class="{{ debugClass | safe }}">
 
 <head>
-	<title>{{{ title }}}</title>
+	<title>{{ title | safe }}</title>
 	<meta charset="utf-8">
 	<meta http-equiv="Content-type" content="text/html;charset=utf-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1">
@@ -30,7 +30,7 @@
 </head>
 
 <body>
-	{{{ content }}}
+	{{ content | safe }}
 </body>
 
 </html>

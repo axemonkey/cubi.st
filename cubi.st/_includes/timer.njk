@@ -3,13 +3,13 @@
 	<section id="puzzle-details">
 		<p id="options"></p>
 
-		{{> settingsLink }}
+		{% include "settingsLink.njk" %}
 	</section>
 
 	<p id="timer">This won't work without JavaScript, sorry...</p>
 
-	{{> cancelButton }}
+	{% include "cancelButton.njk" %}
 
-	{{> scramble }}
+	{% include "scramble.njk" %}
 
 </section>

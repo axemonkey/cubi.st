@@ -1,0 +1,35 @@
+---
+layout: main
+title: Cubist
+headline: Cubist
+strapLine: A speed cubing timer
+---
+<div class="wrapper">
+
+	<main>
+
+		{% include "header.njk" %}
+
+		{% include "timer.njk" %}
+
+	</main>
+
+	<aside id="times">
+
+		{% include "times.njk" %}
+
+	</aside>
+
+	{% include "config/debug.njk" %}
+
+</div>
+
+
+{% include "helpLink.njk" %}
+
+{% include "supportButton.njk" %}
+
+{% include "sounds.njk" %}
+{% include "script.njk" %}
+{% include "deleteTimesModal.njk" %}
+{% include "timesListModal.njk" %}

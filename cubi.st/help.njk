@@ -1,5 +1,5 @@
 ---
-layout: main.hbs
+layout: main
 title: Cubist - Help
 headline: Cubist
 strapLine: Help
@@ -8,7 +8,7 @@ strapLine: Help
 
 	<main>
 
-		{{> header }}
+		{% include "header.njk" %}
 
 		<section class="content">
 
@@ -75,4 +75,4 @@ strapLine: Help
 
 </div>
 
-{{> homeLink }}
+{% include "homeLink.njk" %}
