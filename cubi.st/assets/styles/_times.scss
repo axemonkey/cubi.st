@@ -29,7 +29,8 @@
 }
 
 #times-list,
-#times-modal-list {
+#times-modal-list,
+#times-full-list {
 	list-style-type: none;
 	padding: 0;
 	margin: 10px 30px;
@@ -71,7 +72,8 @@
 		font-size: 1em;
 
 		li {
-			.count {
+			.count,
+			.timestamp {
 				font-size: 0.75em;
 			}
 		}
@@ -80,6 +82,15 @@
 
 #times-modal-list {
 	margin: 10px 0;
+}
+
+#times-full-list {
+	margin: 10px auto;
+}
+
+.times-list-wrapper {
+	display: flex;
+	flex-direction: row;
 }
 
 #clear-times {

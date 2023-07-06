@@ -1,0 +1,12 @@
+.inline-popup {
+	background-color: $dark-panel-color;
+	border-radius: 0.5rem;
+	padding: 0.5rem;
+	text-align: center;
+}
+
+.confirm-buttons-holder {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}

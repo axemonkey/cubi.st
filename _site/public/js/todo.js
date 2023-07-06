@@ -4,13 +4,10 @@ TODO
 
 * RESOLVE CIRCULAR DEPENDECIES - probably break up files into smaller ones
 
-* alerts? e.g. "Settings saved"
+* alerts? toasts? e.g. "Settings saved"
 
-* GET RID OF MODALS
-  * put view all times on a separate page
-  * put delete all times modal INLINE
-  * see https://modalzmodalzmodalz.com for more
-  * this will help with making it work on small screens too
+* add "delete all" to bottom (and/or top?) of list of all times page
+* add averages from main page onto the bottom of list page
 
 * LINKS? BUTTONS? Make UI decisions about what is a link and what is a button
   * Think about "affordance"
@@ -25,9 +22,7 @@ TODO
   * also Atkinson Hyperlegible: https://brailleinstitute.org/freefont
   * not just dark/light theme – colour balance for ADHD
 
-* these ones go away when modals are removed
-  * fix modals for touch users
-  * can't tab to links in modal??
+* all that inline HTML in the JS is kinda nasty
 
 WISHLIST / NICE TO HAVES
 
@@ -38,6 +33,14 @@ WISHLIST / NICE TO HAVES
 
 TO DONE
 
+* GET RID OF MODALS
+  * put view all times on a separate page
+  * put delete all times modal INLINE
+  * see https://modalzmodalzmodalz.com for more
+  * this will help with making it work on small screens too
+* these ones go away when modals are removed
+  * fix modals for touch users
+  * can't tab to links in modal??
 * put settings on a separate page
 * put instructions/about on a separate page
 * hide everything when inspection starts, not when solving starts

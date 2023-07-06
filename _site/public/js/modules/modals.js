@@ -1,7 +1,6 @@
 import {timerSettings} from './settings.js';
 import {hardStop} from './timer.js';
 import {lz} from './tools.js';
-import {populateTimesObj} from './times.js';
 
 const updateModal = () => {
 	const modal = document.querySelector(`#${timerSettings.deleteTimesModalId}`);
@@ -108,43 +107,4 @@ const listTimesForModal = () => {
 	timesList.innerHTML = listItems;
 };
 
-const initTimesList = () => {
-	// move this into a new file when modals.js disappears
-	// or maybe just move it into times.js lol wtf bbq
-
-	const timesList = document.querySelector('#times-full-list');
-
-	if (timesList) {
-		populateTimesObj();
-		const times = timerSettings.timesObj[timerSettings.puzzle];
-		const spans = document.querySelectorAll('.puzzle');
-
-		console.log('-----> initTimesList');
-
-		console.log('\n\n-----> BIG DUMP\n\n');
-		console.log(timerSettings.timesObj);
-		console.log('\n\n-----> END BIG DUMP\n\n');
-
-		console.log(`timerSettings.puzzle: ${timerSettings.puzzle}`);
-		console.log(times);
-
-		for (const span in spans) {
-			if (Object.prototype.hasOwnProperty.call(spans, span)) {
-				console.log(`span: ${span}`);
-				spans[span].textContent = timerSettings.puzzle;
-			}
-		}
-
-		let listItems = '';
-		for (let index = times.length - 1; index >= 0; index--) {
-			const time = times[index];
-			const listEl = `<li><span class="count">${lz(index + 1, 4)}:</span> <span class="time">${time.time}</span> <span class="timestamp">${time.timestamp}</span> <button class="deleteTime" data-timeindex="${index}">Delete</button></li>`;
-
-			listItems += listEl;
-		}
-
-		timesList.innerHTML = listItems;
-	}
-};
-
-export {updateModal, infoModal, settingsModal, timesListModal, onShowModal, onCloseModal, listTimesForModal, initTimesList};
+export {updateModal, infoModal, settingsModal, timesListModal, onShowModal, onCloseModal, listTimesForModal};

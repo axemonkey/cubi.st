@@ -420,68 +420,6 @@
 	    }
 	  }
 	};
-	const onShowModal = () => {
-	  document.body.classList.add('modal-visible');
-	  hardStop();
-	  timerSettings.modalVisible = true;
-	};
-	const onCloseModal = () => {
-	  document.body.classList.remove('modal-visible');
-	  timerSettings.modalVisible = false;
-	  timerSettings.timerEl.focus();
-	};
-	const listTimesForModal = () => {
-	  const times = timerSettings.timesObj[timerSettings.puzzle];
-	  const modal = document.querySelector("#".concat(timerSettings.timesListModalId));
-	  const spans = modal.querySelectorAll('.puzzle');
-	  const timesList = modal.querySelector('#times-modal-list');
-	  console.log('-----> listTimesForModal');
-	  console.log("timerSettings.puzzle: ".concat(timerSettings.puzzle));
-	  console.log(times);
-	  for (const span in spans) {
-	    if (Object.prototype.hasOwnProperty.call(spans, span)) {
-	      console.log(span);
-	      spans[span].textContent = timerSettings.puzzle;
-	    }
-	  }
-	  let listItems = '';
-	  for (let index = times.length - 1; index >= 0; index--) {
-	    const time = times[index];
-	    const listEl = "<li><span class=\"count\">".concat(lz(index + 1, 4), ":</span> <span class=\"time\">").concat(time.time, "</span> <span class=\"timestamp\">").concat(time.timestamp, "</span> <button class=\"deleteTime\" data-timeindex=\"").concat(index, "\">Delete</button></li>");
-	    listItems += listEl;
-	  }
-	  timesList.innerHTML = listItems;
-	};
-	const initTimesList = () => {
-	  // move this into a new file when modals.js disappears
-	  // or maybe just move it into times.js lol wtf bbq
-
-	  const timesList = document.querySelector('#times-full-list');
-	  if (timesList) {
-	    populateTimesObj();
-	    const times = timerSettings.timesObj[timerSettings.puzzle];
-	    const spans = document.querySelectorAll('.puzzle');
-	    console.log('-----> initTimesList');
-	    console.log('\n\n-----> BIG DUMP\n\n');
-	    console.log(timerSettings.timesObj);
-	    console.log('\n\n-----> END BIG DUMP\n\n');
-	    console.log("timerSettings.puzzle: ".concat(timerSettings.puzzle));
-	    console.log(times);
-	    for (const span in spans) {
-	      if (Object.prototype.hasOwnProperty.call(spans, span)) {
-	        console.log("span: ".concat(span));
-	        spans[span].textContent = timerSettings.puzzle;
-	      }
-	    }
-	    let listItems = '';
-	    for (let index = times.length - 1; index >= 0; index--) {
-	      const time = times[index];
-	      const listEl = "<li><span class=\"count\">".concat(lz(index + 1, 4), ":</span> <span class=\"time\">").concat(time.time, "</span> <span class=\"timestamp\">").concat(time.timestamp, "</span> <button class=\"deleteTime\" data-timeindex=\"").concat(index, "\">Delete</button></li>");
-	      listItems += listEl;
-	    }
-	    timesList.innerHTML = listItems;
-	  }
-	};
 
 	const setupForPuzzle = () => {
 	  hardStop();
@@ -590,23 +528,33 @@
 	  return prefix + averagesListItemsHTML + suffix;
 	};
 
-	const clearTimesDialog = () => {
-	  MicroModal.show(timerSettings.deleteTimesModalId, {
-	    debugMode: true,
-	    disableScroll: true,
-	    onShow: () => {
-	      onShowModal();
-	    },
-	    onClose: () => {
-	      onCloseModal();
-	    }
-	  });
-	  timerSettings.modalVisible = true;
-	};
+	// import {onShowModal, onCloseModal} from './modals.js';
+
+	// const clearTimesDialog = () => {
+	// 	MicroModal.show(timerSettings.deleteTimesModalId, {
+	// 		debugMode: true,
+	// 		disableScroll: true,
+	// 		onShow: () => {
+	// 			onShowModal();
+	// 		},
+	// 		onClose: () => {
+	// 			onCloseModal();
+	// 		},
+	// 	});
+	// 	timerSettings.modalVisible = true;
+	// };
+
 	const populateTimesObj = () => {
 	  const ls = localStorage.getItem(timerSettings.timesStorageItem);
 	  const timesObjString = ls || '{}';
 	  timerSettings.timesObj = JSON.parse(timesObjString);
+	};
+	const clearTimesInlinePopup = () => {
+	  console.log('-----> clearTimesInlinePopup');
+	  document.querySelector('#clear-times-confirm').classList.remove('hide');
+	};
+	const dismissTimesInlinePopup = () => {
+	  document.querySelector('#clear-times-confirm').classList.add('hide');
 	};
 	const getTimesForPuzzle = newTime => {
 	  const timesPanel = document.querySelector('#times');
@@ -629,7 +577,7 @@
 	      firstTimeToShow = timesArray.length - timerSettings.timesListLength;
 	      showMoreLink = true;
 	    }
-	    const listPrefix = "<div id=\"times-container\"><h2>Times for ".concat(timerSettings.puzzle, "</h2><button id=\"clear-times\">Clear</button><div id=\"times-list-outer\"><ul id=\"times-list\">");
+	    const listPrefix = "<div id=\"times-container\"><h2>Times for ".concat(timerSettings.puzzle, "</h2><button id=\"clear-times\">Clear</button><div id=\"clear-times-confirm\" class=\"inline-popup hide\"><p>Delete all times for ").concat(timerSettings.puzzle, "?</p><div class=\"confirm-buttons-holder\"><button id=\"clear-times-for-real\" class=\"warning-button\">Yes, delete them</button><button id=\"clear-times-cancel\">No, keep them</button></div></div><div id=\"times-list-outer\"><ul id=\"times-list\">");
 	    let listSuffix = '</ul>';
 	    if (showMoreLink) {
 	      listSuffix += "<a id=\"view-all-link\" href=\"/times/?puzzle=".concat(timerSettings.puzzle, "\">View all</a>");
@@ -658,7 +606,18 @@
 	    document.querySelector('#clear-times').addEventListener('click', event => {
 	      event.preventDefault();
 	      event.target.blur();
-	      clearTimesDialog();
+	      // clearTimesDialog();
+	      clearTimesInlinePopup();
+	    });
+	    document.querySelector('#clear-times-for-real').addEventListener('click', event => {
+	      event.preventDefault();
+	      event.target.blur();
+	      clearTimes();
+	    });
+	    document.querySelector('#clear-times-cancel').addEventListener('click', event => {
+	      event.preventDefault();
+	      event.target.blur();
+	      dismissTimesInlinePopup();
 	    });
 	  }
 	};
@@ -684,16 +643,21 @@
 	  getTimesForPuzzle();
 
 	  // if times modal is visible, update the list there too
-	  if (document.querySelector("#".concat(timerSettings.timesListModalId)).classList.contains('is-open')) {
-	    listTimesForModal();
+	  // if (document.querySelector(`#${timerSettings.timesListModalId}`).classList.contains('is-open')) {
+	  // 	listTimesForModal();
+	  // }
+
+	  if (document.querySelector('#times-full-list')) {
+	    initTimesList();
 	  }
 	};
 	const clearTimes = () => {
 	  timerSettings.timesObj[timerSettings.puzzle] = [];
 	  storeTimesObj();
 	  setupForPuzzle();
-	  MicroModal.close(timerSettings.deleteTimesModalId);
+	  // MicroModal.close(timerSettings.deleteTimesModalId);
 	};
+
 	const storeTime = () => {
 	  const time = timerSettings.timerEl.textContent;
 	  let timesForPuzzle = [];
@@ -709,6 +673,37 @@
 	  timerSettings.timesObj[timerSettings.puzzle] = timesForPuzzle;
 	  storeTimesObj();
 	  getTimesForPuzzle(true);
+	};
+	const initTimesList = () => {
+	  const timesList = document.querySelector('#times-full-list');
+	  if (timesList) {
+	    populateTimesObj();
+	    const times = timerSettings.timesObj[timerSettings.puzzle];
+	    const spans = document.querySelectorAll('.puzzle');
+	    console.log('-----> initTimesList');
+	    console.log('\n\n-----> BIG DUMP\n\n');
+	    console.log(timerSettings.timesObj);
+	    console.log('\n\n-----> END BIG DUMP\n\n');
+	    console.log("timerSettings.puzzle: ".concat(timerSettings.puzzle));
+	    console.log(times);
+	    for (const span in spans) {
+	      if (Object.prototype.hasOwnProperty.call(spans, span)) {
+	        console.log("span: ".concat(span));
+	        spans[span].textContent = timerSettings.puzzle;
+	      }
+	    }
+	    if (times && times.length > 0) {
+	      let listItems = '';
+	      for (let index = times.length - 1; index >= 0; index--) {
+	        const time = times[index];
+	        const listEl = "<li><span class=\"count\">".concat(lz(index + 1, 4), ":</span> <span class=\"time\">").concat(time.time, "</span> <span class=\"timestamp\">").concat(time.timestamp, "</span> <button class=\"deleteTime\" data-timeindex=\"").concat(index, "\">Delete</button></li>");
+	        listItems += listEl;
+	      }
+	      timesList.innerHTML = listItems;
+	    } else {
+	      timesList.innerHTML = "<li>No times recorded</li>";
+	    }
+	  }
 	};
 
 	const initTimerButton = () => {
@@ -919,9 +914,6 @@
 
 	const spacePressed = element => {
 	  if (element.tagName.toLowerCase() === 'input' || element.tagName.toLowerCase() === 'select') {
-	    return;
-	  }
-	  if (timerSettings.modalVisible) {
 	    return;
 	  }
 	  if (timerSettings.timerRunning) {
