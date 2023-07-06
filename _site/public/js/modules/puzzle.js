@@ -2,14 +2,13 @@ import {timerSettings} from './settings.js';
 import {hardStop} from './timer.js';
 import {getTimesForPuzzle} from './times.js';
 import {showScramble} from './scramble.js';
-import {updateModal} from './modals.js';
 import {setConfig} from './timer-config.js';
+import {toasty} from './toasties.js';
 
 const setupForPuzzle = () => {
 	hardStop();
 	getTimesForPuzzle();
 	showScramble();
-	updateModal();
 };
 
 const initPuzzle = () => {
@@ -33,6 +32,9 @@ const initPuzzle = () => {
 const selectPuzzle = () => {
 	timerSettings.puzzle = timerSettings.selectPuzzleEl.value;
 	console.log(`timerSettings.puzzle: ${timerSettings.puzzle}`);
+	toasty({
+		text: `Puzzle: ${timerSettings.puzzle}`,
+	});
 	setConfig();
 	setupForPuzzle();
 };

@@ -92,23 +92,14 @@ const init = () => {
 			console.log('CANCEL');
 			hardStop();
 		}
-		// if (event.target.id === 'view-all-link') {
-		// 	console.log('#view-all-link clicked');
-		// 	timesListModal();
-		// }
-		// if (event.target.id === 'settings-button') {
-		// 	console.log('#settings-button clicked');
-		// 	settingsModal();
-		// }
 	});
+
 	document.addEventListener('touchend', event => {
 		if (timerSettings.countdownRunning || timerSettings.timerRunning) {
 			event.preventDefault();
 			spacePressed(event.target);
 		}
 	}, false);
-
-	MicroModal.init();
 };
 
 // const timerTapped = () => {

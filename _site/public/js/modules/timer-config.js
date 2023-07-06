@@ -1,6 +1,9 @@
 import {timerSettings} from './settings.js';
-import {logConfig} from './debug.js';
 import {initOptions} from './options.js';
+
+const logConfig = () => {
+	console.log(timerSettings.configObj);
+};
 
 const getConfig = () => {
 	console.log('getting config');

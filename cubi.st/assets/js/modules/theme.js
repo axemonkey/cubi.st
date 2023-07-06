@@ -1,5 +1,6 @@
 import {timerSettings} from './settings.js';
 import {setConfig} from './timer-config.js';
+import {toasty} from './toasties.js';
 
 const initTheme = () => {
 	let theme = timerSettings.defaults.theme;
@@ -19,6 +20,9 @@ const checkThemeDropdown = () => {
 	timerSettings.theme = timerSettings.themeDropdown.value;
 	clearTheme();
 	document.body.classList.add(timerSettings.theme);
+	toasty({
+		text: `Theme: ${timerSettings.theme}`,
+	});
 	setConfig();
 };
 

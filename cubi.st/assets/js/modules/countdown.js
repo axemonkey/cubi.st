@@ -1,6 +1,7 @@
 import {timerSettings} from './settings.js';
 import {setConfig} from './timer-config.js';
 import {startTimer} from './timer.js';
+import {toasty} from './toasties.js';
 
 const initCountdownDuration = () => {
 	let duration = Number(timerSettings.defaults.countdownDuration);
@@ -21,6 +22,9 @@ const initCountdownDuration = () => {
 const getCountdownDuration = () => {
 	timerSettings.countdownDuration = Number(timerSettings.countdownDurationEl.value);
 	console.log(`timerSettings.countdownDuration: ${timerSettings.countdownDuration}`);
+	toasty({
+		text: `Inspection time set: ${timerSettings.countdownDuration} seconds`,
+	});
 	setConfig();
 };
 

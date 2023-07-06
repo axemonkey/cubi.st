@@ -4,8 +4,6 @@ TODO
 
 * RESOLVE CIRCULAR DEPENDECIES - probably break up files into smaller ones
 
-* alerts? toasts? e.g. "Settings saved"
-
 * add "delete all" to bottom (and/or top?) of list of all times page
 * add averages from main page onto the bottom of list page
 
@@ -21,8 +19,11 @@ TODO
   * font chooser – include comic sans for ADHD users, inc Comic Mono for times etc.
   * also Atkinson Hyperlegible: https://brailleinstitute.org/freefont
   * not just dark/light theme – colour balance for ADHD
+  * Trinity theme - mayyyyybe do a matrix animated falling text background on either the button, or the whole page, when timer is running
 
 * all that inline HTML in the JS is kinda nasty
+
+* probs turn off all the logging, or make it switchable
 
 WISHLIST / NICE TO HAVES
 
@@ -33,6 +34,7 @@ WISHLIST / NICE TO HAVES
 
 TO DONE
 
+* alerts? toasts? e.g. "Settings saved"
 * GET RID OF MODALS
   * put view all times on a separate page
   * put delete all times modal INLINE

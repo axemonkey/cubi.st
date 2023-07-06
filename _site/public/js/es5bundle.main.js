@@ -52,6 +52,9 @@
 	  }
 	};
 
+	const logConfig = () => {
+	  console.log(timerSettings.configObj);
+	};
 	const getConfig = () => {
 	  console.log('getting config');
 	  const ls = localStorage.getItem(timerSettings.configStorageItem);
@@ -105,10 +108,6 @@
 	      localStorage.removeItem(timerSettings.timesStorageItem);
 	    });
 	  }
-	};
-	const logConfig = () => {
-	  // TODO - that nifty thing Morgan C wrote
-	  console.log(timerSettings.configObj);
 	};
 
 	const lz = function (n) {
@@ -408,24 +407,22 @@
 	  }
 	};
 
-	const updateModal = () => {
-	  const modal = document.querySelector("#".concat(timerSettings.deleteTimesModalId));
-	  if (modal) {
-	    const spans = modal.querySelectorAll('.puzzle');
-	    for (const span in spans) {
-	      if (Object.prototype.hasOwnProperty.call(spans, span)) {
-	        console.log(span);
-	        spans[span].textContent = timerSettings.puzzle;
-	      }
-	    }
-	  }
+	const toasty = options => {
+	  const {
+	    text,
+	    type = 'info'
+	  } = options;
+	  Toastify({
+	    /* eslint-disable-line new-cap */
+	    text,
+	    className: "toast-".concat(type)
+	  }).showToast();
 	};
 
 	const setupForPuzzle = () => {
 	  hardStop();
 	  getTimesForPuzzle();
 	  showScramble();
-	  updateModal();
 	};
 	const initPuzzle = () => {
 	  let puzzle = timerSettings.defaults.puzzle;
@@ -446,6 +443,9 @@
 	const selectPuzzle = () => {
 	  timerSettings.puzzle = timerSettings.selectPuzzleEl.value;
 	  console.log("timerSettings.puzzle: ".concat(timerSettings.puzzle));
+	  toasty({
+	    text: "Puzzle: ".concat(timerSettings.puzzle)
+	  });
 	  setConfig();
 	  setupForPuzzle();
 	};
@@ -528,22 +528,6 @@
 	  return prefix + averagesListItemsHTML + suffix;
 	};
 
-	// import {onShowModal, onCloseModal} from './modals.js';
-
-	// const clearTimesDialog = () => {
-	// 	MicroModal.show(timerSettings.deleteTimesModalId, {
-	// 		debugMode: true,
-	// 		disableScroll: true,
-	// 		onShow: () => {
-	// 			onShowModal();
-	// 		},
-	// 		onClose: () => {
-	// 			onCloseModal();
-	// 		},
-	// 	});
-	// 	timerSettings.modalVisible = true;
-	// };
-
 	const populateTimesObj = () => {
 	  const ls = localStorage.getItem(timerSettings.timesStorageItem);
 	  const timesObjString = ls || '{}';
@@ -553,7 +537,7 @@
 	  console.log('-----> clearTimesInlinePopup');
 	  document.querySelector('#clear-times-confirm').classList.remove('hide');
 	};
-	const dismissTimesInlinePopup = () => {
+	const dismissClearTimesInlinePopup = () => {
 	  document.querySelector('#clear-times-confirm').classList.add('hide');
 	};
 	const getTimesForPuzzle = newTime => {
@@ -606,7 +590,6 @@
 	    document.querySelector('#clear-times').addEventListener('click', event => {
 	      event.preventDefault();
 	      event.target.blur();
-	      // clearTimesDialog();
 	      clearTimesInlinePopup();
 	    });
 	    document.querySelector('#clear-times-for-real').addEventListener('click', event => {
@@ -617,7 +600,7 @@
 	    document.querySelector('#clear-times-cancel').addEventListener('click', event => {
 	      event.preventDefault();
 	      event.target.blur();
-	      dismissTimesInlinePopup();
+	      dismissClearTimesInlinePopup();
 	    });
 	  }
 	};
@@ -641,12 +624,6 @@
 	  console.log(timerSettings.timesObj[timerSettings.puzzle]);
 	  storeTimesObj();
 	  getTimesForPuzzle();
-
-	  // if times modal is visible, update the list there too
-	  // if (document.querySelector(`#${timerSettings.timesListModalId}`).classList.contains('is-open')) {
-	  // 	listTimesForModal();
-	  // }
-
 	  if (document.querySelector('#times-full-list')) {
 	    initTimesList();
 	  }
@@ -655,11 +632,11 @@
 	  timerSettings.timesObj[timerSettings.puzzle] = [];
 	  storeTimesObj();
 	  setupForPuzzle();
-	  // MicroModal.close(timerSettings.deleteTimesModalId);
 	};
-
 	const storeTime = () => {
 	  const time = timerSettings.timerEl.textContent;
+	  const now = new Date();
+	  const timestamp = now.toLocaleString('en-GB');
 	  let timesForPuzzle = [];
 	  console.log("storing ".concat(time));
 	  if (timerSettings.timesObj[timerSettings.puzzle]) {
@@ -667,9 +644,8 @@
 	  }
 	  timesForPuzzle.push({
 	    time,
-	    timestamp: moment().format('DD-MM-YYYY, HH:MM:SS')
+	    timestamp
 	  });
-	  // timesForPuzzle.push(time);
 	  timerSettings.timesObj[timerSettings.puzzle] = timesForPuzzle;
 	  storeTimesObj();
 	  getTimesForPuzzle(true);
@@ -799,6 +775,9 @@
 	const getCountdownDuration = () => {
 	  timerSettings.countdownDuration = Number(timerSettings.countdownDurationEl.value);
 	  console.log("timerSettings.countdownDuration: ".concat(timerSettings.countdownDuration));
+	  toasty({
+	    text: "Inspection time set: ".concat(timerSettings.countdownDuration, " seconds")
+	  });
 	  setConfig();
 	};
 	const startCountdown = () => {
@@ -855,6 +834,9 @@
 	const checkSoundsCheckbox = () => {
 	  timerSettings.soundsOn = timerSettings.soundCheckbox.checked;
 	  console.log("timerSettings.soundsOn: ".concat(timerSettings.soundsOn));
+	  toasty({
+	    text: "Sounds: ".concat(timerSettings.soundsOn ? 'on' : 'off')
+	  });
 	  setConfig();
 	};
 
@@ -872,6 +854,9 @@
 	const checkFocusCheckbox = () => {
 	  timerSettings.focusOn = timerSettings.focusCheckbox.checked;
 	  console.log("timerSettings.focusOn: ".concat(timerSettings.focusOn));
+	  toasty({
+	    text: "Focus mode: ".concat(timerSettings.focusOn ? 'on' : 'off')
+	  });
 	  setConfig();
 	};
 
@@ -890,6 +875,9 @@
 	  timerSettings.theme = timerSettings.themeDropdown.value;
 	  clearTheme();
 	  document.body.classList.add(timerSettings.theme);
+	  toasty({
+	    text: "Theme: ".concat(timerSettings.theme)
+	  });
 	  setConfig();
 	};
 	const getThemes = () => {
@@ -1009,23 +997,13 @@
 	      console.log('CANCEL');
 	      hardStop();
 	    }
-	    // if (event.target.id === 'view-all-link') {
-	    // 	console.log('#view-all-link clicked');
-	    // 	timesListModal();
-	    // }
-	    // if (event.target.id === 'settings-button') {
-	    // 	console.log('#settings-button clicked');
-	    // 	settingsModal();
-	    // }
 	  });
-
 	  document.addEventListener('touchend', event => {
 	    if (timerSettings.countdownRunning || timerSettings.timerRunning) {
 	      event.preventDefault();
 	      spacePressed(event.target);
 	    }
 	  }, false);
-	  MicroModal.init();
 	};
 
 	// const timerTapped = () => {

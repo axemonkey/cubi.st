@@ -38,9 +38,4 @@ const initDebug = () => {
 	}
 };
 
-const logConfig = () => {
-	// TODO - that nifty thing Morgan C wrote
-	console.log(timerSettings.configObj);
-};
-
-export {initDebug, logConfig};
+export {initDebug};

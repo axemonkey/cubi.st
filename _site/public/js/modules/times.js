@@ -2,21 +2,6 @@ import {timerSettings} from './settings.js';
 import {setupForPuzzle} from './puzzle.js';
 import {getAverages, getAveragesHTML} from './averages.js';
 import {lz} from './tools.js';
-// import {onShowModal, onCloseModal} from './modals.js';
-
-// const clearTimesDialog = () => {
-// 	MicroModal.show(timerSettings.deleteTimesModalId, {
-// 		debugMode: true,
-// 		disableScroll: true,
-// 		onShow: () => {
-// 			onShowModal();
-// 		},
-// 		onClose: () => {
-// 			onCloseModal();
-// 		},
-// 	});
-// 	timerSettings.modalVisible = true;
-// };
 
 const populateTimesObj = () => {
 	const ls = localStorage.getItem(timerSettings.timesStorageItem);
@@ -30,7 +15,7 @@ const clearTimesInlinePopup = () => {
 	document.querySelector('#clear-times-confirm').classList.remove('hide');
 };
 
-const dismissTimesInlinePopup = () => {
+const dismissClearTimesInlinePopup = () => {
 	document.querySelector('#clear-times-confirm').classList.add('hide');
 };
 
@@ -96,7 +81,6 @@ const getTimesForPuzzle = newTime => {
 		document.querySelector('#clear-times').addEventListener('click', event => {
 			event.preventDefault();
 			event.target.blur();
-			// clearTimesDialog();
 			clearTimesInlinePopup();
 		});
 
@@ -109,7 +93,7 @@ const getTimesForPuzzle = newTime => {
 		document.querySelector('#clear-times-cancel').addEventListener('click', event => {
 			event.preventDefault();
 			event.target.blur();
-			dismissTimesInlinePopup();
+			dismissClearTimesInlinePopup();
 		});
 	}
 };
@@ -137,11 +121,6 @@ const deleteTime = button => {
 	storeTimesObj();
 	getTimesForPuzzle();
 
-	// if times modal is visible, update the list there too
-	// if (document.querySelector(`#${timerSettings.timesListModalId}`).classList.contains('is-open')) {
-	// 	listTimesForModal();
-	// }
-
 	if (document.querySelector('#times-full-list')) {
 		initTimesList();
 	}
@@ -151,11 +130,12 @@ const clearTimes = () => {
 	timerSettings.timesObj[timerSettings.puzzle] = [];
 	storeTimesObj();
 	setupForPuzzle();
-	// MicroModal.close(timerSettings.deleteTimesModalId);
 };
 
 const storeTime = () => {
 	const time = timerSettings.timerEl.textContent;
+	const now = new Date();
+	const timestamp = now.toLocaleString('en-GB');
 	let timesForPuzzle = [];
 
 	console.log(`storing ${time}`);
@@ -166,9 +146,8 @@ const storeTime = () => {
 
 	timesForPuzzle.push({
 		time,
-		timestamp: moment().format('DD-MM-YYYY, HH:MM:SS'),
+		timestamp,
 	});
-	// timesForPuzzle.push(time);
 	timerSettings.timesObj[timerSettings.puzzle] = timesForPuzzle;
 	storeTimesObj();
 	getTimesForPuzzle(true);
