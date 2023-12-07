@@ -10,6 +10,12 @@ strapLine: Help
 
 		{% include "header.njk" %}
 
+		<section class="supplementary">
+
+			{% include "homeLink.njk" %}
+
+		</section>
+
 		<section class="content">
 
 			<h2>Instructions</h2>
@@ -58,7 +64,7 @@ strapLine: Help
 
 			<dl>
 				<dt><strong>“Why did you create Cubist?”</strong></dt>
-				<dd>I am aware there are other cube timing sites out there, but I couldn’t find one that met all my requirements, so I wrote my own. One of these requirements was audio cues. I wanted to spend my inspection time inspecting, not looking at the screen watching a countdown.</dd>
+				<dd>I am aware there are other cube timing sites out there, such as the excellent <a href="http://www.cubetimer.com/">Cubetimer.com</a>, but I couldn’t find one that met all my requirements, so I wrote my own. One of these requirements was audio cues. I wanted to spend my inspection time inspecting, not looking at the screen watching a countdown.</dd>
 				<dt><strong>“How are the scrambles generated?”</strong></dt>
 				<dd>The scrambling system on Cubist is written from scratch and simply generates a random list of moves appropriate to the size of puzzle chosen. However, unlike other scramblers out there, Cubist will never provide two consecutive scramble moves in the same axis. So you will never see a R move followed by a L, nor a U followed by a D, nor a F followed by a B. I believe this gives a more thorough scramble.</dd>
 				<dt><strong>“Cubist isn’t working on my computer/device! You’re a bad programmer!”</strong></dt>
@@ -68,6 +74,12 @@ strapLine: Help
 				<dt><strong>“I have feedback, how can I contact you?”</strong></dt>
 				<dd>Feel free to get in touch via <a href="mailto:twist@cubi.st">email</a> or <a href="https://metalhead.club/@axemonkey">Mastodon</a>.</dd>
 			</dl>
+
+		</section>
+
+		<section class="supplementary">
+
+			{% include "homeLink.njk" %}
 
 		</section>
 
