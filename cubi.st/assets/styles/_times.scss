@@ -99,18 +99,19 @@
 }
 
 #clear-times,
-.deleteTime {
+.deleteTime,
+#view-all-button {
 	display: inline-block;
 	font-family: $monospaceFont;
-	background: none;
+	background: $dark-link-color;
+	color: $dark-bg-color;
 	border: none;
 	border-radius: 3px;
-	color: $dark-link-color;
 	cursor: pointer;
 	transition: background 0.2s ease-in-out;
 
 	&:hover {
-		background: $dark-link-color;
-		color: $dark-bg-color;
+		background-color: $light-bg-color;
+		color: $light-link-color;
 	}
 }

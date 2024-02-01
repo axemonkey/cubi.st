@@ -45,7 +45,7 @@
 	const initOptions = () => {
 	  const optionsEl = document.querySelector('#options');
 	  if (optionsEl) {
-	    const optionsStrings = ["Puzzle: <strong>".concat(timerSettings.puzzle, "</strong>"), "Inspection: <strong>".concat(timerSettings.countdownDuration, "s</strong>"), "Theme: <strong>".concat(timerSettings.theme, "</strong>"), "Sound: <strong>".concat(timerSettings.soundsOn ? 'On' : 'Off', "</strong>"), "Focus: <strong>".concat(timerSettings.focusOn ? 'On' : 'Off', "</strong>")];
+	    const optionsStrings = [`Puzzle: <strong>${timerSettings.puzzle}</strong>`, `Inspection: <strong>${timerSettings.countdownDuration}s</strong>`, `Theme: <strong>${timerSettings.theme}</strong>`, `Sound: <strong>${timerSettings.soundsOn ? 'On' : 'Off'}</strong>`, `Focus: <strong>${timerSettings.focusOn ? 'On' : 'Off'}</strong>`];
 	    const html = optionsStrings.join(' ~&bull;~ ');
 	    optionsEl.innerHTML = html;
 	    document.querySelector('#scramble-container .puzzle').innerHTML = timerSettings.puzzle;
@@ -160,14 +160,14 @@
 	  const seconds = Math.floor(leftoverSeconds);
 	  const hundredths = Math.round(roundToTwo(timeInSeconds - Math.floor(timeInSeconds)) * 100);
 	  const timeString = [lz(minutes), lz(seconds), lz(hundredths)].join('.');
-	  console.log("timeInSeconds: ".concat(timeInSeconds));
-	  console.log("Math.floor(timeInSeconds): ".concat(Math.floor(timeInSeconds)));
-	  console.log("timeInSeconds - Math.floor(timeInSeconds): ".concat(timeInSeconds - Math.floor(timeInSeconds)));
-	  console.log("minutes: ".concat(minutes));
-	  console.log("leftoverSeconds: ".concat(leftoverSeconds));
-	  console.log("seconds: ".concat(seconds));
-	  console.log("hundredths: ".concat(hundredths));
-	  console.log("timeString: ".concat(timeString));
+	  console.log(`timeInSeconds: ${timeInSeconds}`);
+	  console.log(`Math.floor(timeInSeconds): ${Math.floor(timeInSeconds)}`);
+	  console.log(`timeInSeconds - Math.floor(timeInSeconds): ${timeInSeconds - Math.floor(timeInSeconds)}`);
+	  console.log(`minutes: ${minutes}`);
+	  console.log(`leftoverSeconds: ${leftoverSeconds}`);
+	  console.log(`seconds: ${seconds}`);
+	  console.log(`hundredths: ${hundredths}`);
+	  console.log(`timeString: ${timeString}`);
 	  return timeString;
 	};
 
@@ -400,7 +400,7 @@
 	    let scrambleHTML = '<ul>';
 	    const scrambleSuffix = '</ul>';
 	    for (const element of scramble) {
-	      scrambleHTML += "<li><span class=\"moveLabel\" title=\"Turn the ".concat([element.move.label, element.modifier.label].join(' '), "\">").concat(element.move.text + element.modifier.text, "</span></li>");
+	      scrambleHTML += `<li><span class="moveLabel" title="Turn the ${[element.move.label, element.modifier.label].join(' ')}">${element.move.text + element.modifier.text}</span></li>`;
 	    }
 	    scrambleHTML += scrambleSuffix;
 	    timerSettings.scrambleEl.innerHTML = scrambleHTML;
@@ -415,7 +415,7 @@
 	  Toastify({
 	    /* eslint-disable-line new-cap */
 	    text,
-	    className: "toast-".concat(type)
+	    className: `toast-${type}`
 	  }).showToast();
 	};
 
@@ -430,7 +430,7 @@
 	    puzzle = timerSettings.configObj.puzzle;
 	  }
 	  timerSettings.puzzle = puzzle;
-	  console.log("timerSettings.puzzle: ".concat(timerSettings.puzzle));
+	  console.log(`timerSettings.puzzle: ${timerSettings.puzzle}`);
 	  if (timerSettings.selectPuzzleEl) {
 	    for (const elem of timerSettings.selectPuzzleEl.querySelectorAll('option')) {
 	      const puzzleOption = elem;
@@ -442,9 +442,9 @@
 	};
 	const selectPuzzle = () => {
 	  timerSettings.puzzle = timerSettings.selectPuzzleEl.value;
-	  console.log("timerSettings.puzzle: ".concat(timerSettings.puzzle));
+	  console.log(`timerSettings.puzzle: ${timerSettings.puzzle}`);
 	  toasty({
-	    text: "Puzzle: ".concat(timerSettings.puzzle)
+	    text: `Puzzle: ${timerSettings.puzzle}`
 	  });
 	  setConfig();
 	  setupForPuzzle();
@@ -522,7 +522,7 @@
 	  }];
 	  let averagesListItemsHTML = '';
 	  for (const obj of averagesListItemsObjArray) {
-	    const listItemHTML = "<li><span class=\"averageLabelOuter\"><span class=\"averageLabel\" title=\"".concat(obj.tooltip, "\">").concat(obj.label, ":</span></span> <span class=\"averageTime\">").concat(obj.value, "</span></li>");
+	    const listItemHTML = `<li><span class="averageLabelOuter"><span class="averageLabel" title="${obj.tooltip}">${obj.label}:</span></span> <span class="averageTime">${obj.value}</span></li>`;
 	    averagesListItemsHTML += listItemHTML;
 	  }
 	  return prefix + averagesListItemsHTML + suffix;
@@ -561,10 +561,10 @@
 	      firstTimeToShow = timesArray.length - timerSettings.timesListLength;
 	      showMoreLink = true;
 	    }
-	    const listPrefix = "<div id=\"times-container\"><h2>Times for ".concat(timerSettings.puzzle, "</h2><button id=\"clear-times\">Clear</button><div id=\"clear-times-confirm\" class=\"inline-popup hide\"><p>Delete all times for ").concat(timerSettings.puzzle, "?</p><div class=\"confirm-buttons-holder\"><button id=\"clear-times-for-real\" class=\"warning-button\">Yes, delete them</button><button id=\"clear-times-cancel\">No, keep them</button></div></div><div id=\"times-list-outer\"><ul id=\"times-list\">");
+	    const listPrefix = `<div id="times-container"><h2>Times for ${timerSettings.puzzle}</h2><button id="clear-times">Clear</button><div id="clear-times-confirm" class="inline-popup hide"><p>Delete all times for ${timerSettings.puzzle}?</p><div class="confirm-buttons-holder"><button id="clear-times-for-real" class="warning-button">Yes, delete them</button><button id="clear-times-cancel">No, keep them</button></div></div><div id="times-list-outer"><ul id="times-list">`;
 	    let listSuffix = '</ul>';
 	    if (showMoreLink) {
-	      listSuffix += "<a id=\"view-all-link\" href=\"/times/?puzzle=".concat(timerSettings.puzzle, "\">View all</a>");
+	      listSuffix += `<button id="view-all-button">View all</button>`;
 	    }
 	    listSuffix += '</div></div>';
 	    let listItems = '';
@@ -572,14 +572,14 @@
 	    for (let i = firstTimeToShow; i < timesArray.length; i++) {
 	      listItems += '<li><span class="count">';
 	      listItems += lz(i + 1, 4);
-	      listItems += ":</span> <span class=\"time".concat(i === timesArray.length - 1 ? timeAdditionalClass : '', "\"");
+	      listItems += `:</span> <span class="time${i === timesArray.length - 1 ? timeAdditionalClass : ''}"`;
 	      if (timesArray[i].timestamp) {
-	        listItems += " title=\"".concat(timesArray[i].timestamp, "\"");
+	        listItems += ` title="${timesArray[i].timestamp}"`;
 	      }
-	      listItems += ">";
+	      listItems += `>`;
 	      listItems += timesArray[i].time;
 	      listItems += '</span>';
-	      listItems += "<button class=\"deleteTime\" data-timeindex=\"".concat(i, "\">Delete</button>");
+	      listItems += `<button class="deleteTime" data-timeindex="${i}">Delete</button>`;
 	      listItems += '</li>';
 	    }
 	    const averages = getAverages(timesArray);
@@ -587,6 +587,11 @@
 	    const averagesHTML = getAveragesHTML(averages);
 	    timesPanel.innerHTML = listPrefix + listItems + listSuffix + averagesHTML;
 	    document.querySelector('#times-list-outer').scrollTop = document.querySelector('#times-list').offsetHeight;
+	    document.querySelector('#view-all-button').addEventListener('click', event => {
+	      event.preventDefault();
+	      event.target.blur();
+	      document.location.href = `/times/?puzzle=${timerSettings.puzzle}`;
+	    });
 	    document.querySelector('#clear-times').addEventListener('click', event => {
 	      event.preventDefault();
 	      event.target.blur();
@@ -616,7 +621,7 @@
 	};
 	const deleteTime = button => {
 	  const timeIndex = button.dataset.timeindex;
-	  console.log("timeIndex: ".concat(timeIndex));
+	  console.log(`timeIndex: ${timeIndex}`);
 	  console.log('times before:');
 	  console.log(timerSettings.timesObj[timerSettings.puzzle]);
 	  timerSettings.timesObj[timerSettings.puzzle].splice(timeIndex, 1);
@@ -638,7 +643,7 @@
 	  const now = new Date();
 	  const timestamp = now.toLocaleString('en-GB');
 	  let timesForPuzzle = [];
-	  console.log("storing ".concat(time));
+	  console.log(`storing ${time}`);
 	  if (timerSettings.timesObj[timerSettings.puzzle]) {
 	    timesForPuzzle = timerSettings.timesObj[timerSettings.puzzle];
 	  }
@@ -660,11 +665,11 @@
 	    console.log('\n\n-----> BIG DUMP\n\n');
 	    console.log(timerSettings.timesObj);
 	    console.log('\n\n-----> END BIG DUMP\n\n');
-	    console.log("timerSettings.puzzle: ".concat(timerSettings.puzzle));
+	    console.log(`timerSettings.puzzle: ${timerSettings.puzzle}`);
 	    console.log(times);
 	    for (const span in spans) {
 	      if (Object.prototype.hasOwnProperty.call(spans, span)) {
-	        console.log("span: ".concat(span));
+	        console.log(`span: ${span}`);
 	        spans[span].textContent = timerSettings.puzzle;
 	      }
 	    }
@@ -672,12 +677,12 @@
 	      let listItems = '';
 	      for (let index = times.length - 1; index >= 0; index--) {
 	        const time = times[index];
-	        const listEl = "<li><span class=\"count\">".concat(lz(index + 1, 4), ":</span> <span class=\"time\">").concat(time.time, "</span> <span class=\"timestamp\">").concat(time.timestamp, "</span> <button class=\"deleteTime\" data-timeindex=\"").concat(index, "\">Delete</button></li>");
+	        const listEl = `<li><span class="count">${lz(index + 1, 4)}:</span> <span class="time">${time.time}</span> <span class="timestamp">${time.timestamp}</span> <button class="deleteTime" data-timeindex="${index}">Delete</button></li>`;
 	        listItems += listEl;
 	      }
 	      timesList.innerHTML = listItems;
 	    } else {
-	      timesList.innerHTML = "<li>No times recorded</li>";
+	      timesList.innerHTML = `<li>No times recorded</li>`;
 	    }
 	  }
 	};
@@ -774,9 +779,9 @@
 	};
 	const getCountdownDuration = () => {
 	  timerSettings.countdownDuration = Number(timerSettings.countdownDurationEl.value);
-	  console.log("timerSettings.countdownDuration: ".concat(timerSettings.countdownDuration));
+	  console.log(`timerSettings.countdownDuration: ${timerSettings.countdownDuration}`);
 	  toasty({
-	    text: "Inspection time set: ".concat(timerSettings.countdownDuration, " seconds")
+	    text: `Inspection time set: ${timerSettings.countdownDuration} seconds`
 	  });
 	  setConfig();
 	};
@@ -826,16 +831,16 @@
 	    sounds = timerSettings.configObj.soundsOn;
 	  }
 	  timerSettings.soundsOn = sounds;
-	  console.log("timerSettings.soundsOn: ".concat(timerSettings.soundsOn));
+	  console.log(`timerSettings.soundsOn: ${timerSettings.soundsOn}`);
 	  if (timerSettings.soundCheckbox) {
 	    timerSettings.soundCheckbox.checked = sounds;
 	  }
 	};
 	const checkSoundsCheckbox = () => {
 	  timerSettings.soundsOn = timerSettings.soundCheckbox.checked;
-	  console.log("timerSettings.soundsOn: ".concat(timerSettings.soundsOn));
+	  console.log(`timerSettings.soundsOn: ${timerSettings.soundsOn}`);
 	  toasty({
-	    text: "Sounds: ".concat(timerSettings.soundsOn ? 'on' : 'off')
+	    text: `Sounds: ${timerSettings.soundsOn ? 'on' : 'off'}`
 	  });
 	  setConfig();
 	};
@@ -846,16 +851,16 @@
 	    focus = timerSettings.configObj.focusOn;
 	  }
 	  timerSettings.focusOn = focus;
-	  console.log("timerSettings.focusOn: ".concat(timerSettings.focusOn));
+	  console.log(`timerSettings.focusOn: ${timerSettings.focusOn}`);
 	  if (timerSettings.focusCheckbox) {
 	    timerSettings.focusCheckbox.checked = focus;
 	  }
 	};
 	const checkFocusCheckbox = () => {
 	  timerSettings.focusOn = timerSettings.focusCheckbox.checked;
-	  console.log("timerSettings.focusOn: ".concat(timerSettings.focusOn));
+	  console.log(`timerSettings.focusOn: ${timerSettings.focusOn}`);
 	  toasty({
-	    text: "Focus mode: ".concat(timerSettings.focusOn ? 'on' : 'off')
+	    text: `Focus mode: ${timerSettings.focusOn ? 'on' : 'off'}`
 	  });
 	  setConfig();
 	};
@@ -869,14 +874,14 @@
 	  timerSettings.theme = theme;
 	  document.body.classList.add(theme);
 	  setThemeDropdown();
-	  console.log("timerSettings.theme: ".concat(timerSettings.theme));
+	  console.log(`timerSettings.theme: ${timerSettings.theme}`);
 	};
 	const checkThemeDropdown = () => {
 	  timerSettings.theme = timerSettings.themeDropdown.value;
 	  clearTheme();
 	  document.body.classList.add(timerSettings.theme);
 	  toasty({
-	    text: "Theme: ".concat(timerSettings.theme)
+	    text: `Theme: ${timerSettings.theme}`
 	  });
 	  setConfig();
 	};
