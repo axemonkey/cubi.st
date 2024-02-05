@@ -587,11 +587,13 @@
 	    const averagesHTML = getAveragesHTML(averages);
 	    timesPanel.innerHTML = listPrefix + listItems + listSuffix + averagesHTML;
 	    document.querySelector('#times-list-outer').scrollTop = document.querySelector('#times-list').offsetHeight;
-	    document.querySelector('#view-all-button').addEventListener('click', event => {
-	      event.preventDefault();
-	      event.target.blur();
-	      document.location.href = `/times/?puzzle=${timerSettings.puzzle}`;
-	    });
+	    if (document.querySelector('#view-all-button')) {
+	      document.querySelector('#view-all-button').addEventListener('click', event => {
+	        event.preventDefault();
+	        event.target.blur();
+	        document.location.href = `/times/?puzzle=${timerSettings.puzzle}`;
+	      });
+	    }
 	    document.querySelector('#clear-times').addEventListener('click', event => {
 	      event.preventDefault();
 	      event.target.blur();
