@@ -12,6 +12,8 @@ import {initOptions} from './modules/options.js';
 import {initTimerButton, hardStop} from './modules/timer.js';
 import {showScramble} from './modules/scramble.js';
 
+import {lapBanner} from './modules/lap-banner.js';
+
 const init = () => {
 	console.log('init timer js');
 	document.body.classList.add('js');
@@ -29,6 +31,8 @@ const init = () => {
 	showScramble();
 	getTimesForPuzzle();
 	initTimesList();
+
+	lapBanner.init();
 
 	if (timerSettings.timerEl) {
 		timerSettings.timerEl.innerHTML = timerSettings.defaultState;

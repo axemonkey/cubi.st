@@ -7,6 +7,8 @@ TODO
 * add "delete all" to bottom (and/or top?) of list of all times page
 * add averages from main page onto the bottom of list page
 
+* add a bit to "about" (or somewhere else) about how I got into cubing, silent cow, etc.
+
 * LINKS? BUTTONS? Make UI decisions about what is a link and what is a button
   * Think about "affordance"
 
@@ -22,7 +24,7 @@ TODO
   * Trinity theme - mayyyyybe do a matrix animated falling text background on either the button, or the whole page, when timer is running
   * might want to investigate using the Monaspace fonts for the fixed width stuff - https://monaspace.githubnext.com/
 
-* all that inline HTML in the JS is kinda nasty
+* all that inline HTML in the JS is kinda nasty - some kind of templating thing would be a good idea
 
 * probs turn off all the logging, or make it switchable
 
