@@ -49,7 +49,7 @@ const lapBanner = {
 	assembleStyles: () => {
 		let str = '';
 
-		str += '.c-lap-banner {z-index: 9999; height: 150px; overflow: hidden; width: 100%;position: fixed;left: 0;bottom: 0;background: rgba(0, 0, 0, 90%); padding-top: 40px; @media (min-width: 600px) {padding-top: 0;} }';
+		str += '.c-lap-banner {z-index: 9999; overflow: hidden; width: 100%;position: fixed;left: 0;bottom: 0;background: rgba(0, 0, 0, 90%); padding-top: 40px; @media (min-width: 600px) {padding-top: 0;} }';
 		str += '.c-lap-banner * { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol" !important; font-size: 22px !important; }';
 
 		str += '.c-lap-banner strong {font-weight: bold;}';
