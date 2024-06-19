@@ -41,4 +41,4 @@ function exportsObj(bundles) {
 	return exportsArray;
 }
 
-export default exportsObj(['cookie-consent', 'cross-promo', 'preferences', 'signup']);
+export default exportsObj([]);
