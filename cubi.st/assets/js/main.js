@@ -12,7 +12,7 @@ import {initOptions} from './modules/options.js';
 import {initTimerButton, hardStop} from './modules/timer.js';
 import {showScramble} from './modules/scramble.js';
 
-import {lapBanner} from './modules/lap-banner.js';
+// import {lapBanner} from './modules/lap-banner.js';
 
 const init = () => {
 	console.log('init timer js');
@@ -32,7 +32,7 @@ const init = () => {
 	getTimesForPuzzle();
 	initTimesList();
 
-	lapBanner.init();
+	// lapBanner.init();
 
 	if (timerSettings.timerEl) {
 		timerSettings.timerEl.innerHTML = timerSettings.defaultState;
