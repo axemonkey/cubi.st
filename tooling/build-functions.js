@@ -5,7 +5,6 @@ import autoprefixer from 'autoprefixer';
 import postcss from 'postcss';
 import {optimize} from 'svgo';
 import sharp from 'sharp';
-import {svgoOptions} from './svgo-config.js';
 
 import {
 	logger,
@@ -33,13 +32,11 @@ async function processImagesFunction(options) {
 
 	async function processSvg(svgFile) {
 		logger.info(`doing a SVG innit`);
-		logger.warning(`typeof svgoOptions: ${typeof svgoOptions}`);
 
 		const filePath = `${options.source}/${svgFile}`;
 		const destinationFile = `${options.destination}/${svgFile}`;
 		const svgFileContent = fs.readFileSync(filePath, 'utf8');
 
-		// const result = optimize(svgFileContent, svgProcessOptions);
 		const result = optimize(svgFileContent);
 		const optimizedSvgFileContent = result.data;
 
