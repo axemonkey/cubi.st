@@ -1,29 +1,29 @@
 @import "vendor/toastify";
 
-@import "fonts";
+@import "partials/fonts";
 
-@import "vars";
-@import "mixins";
-@import "body";
-@import "global";
-@import "layout";
-@import "typography";
-@import "forms";
-@import "buttons";
-@import "links";
-@import "animation";
+@import "partials/vars";
+@import "partials/mixins";
+@import "partials/body";
+@import "partials/global";
+@import "partials/layout";
+@import "partials/typography";
+@import "partials/forms";
+@import "partials/buttons";
+@import "partials/links";
+@import "partials/animation";
 
-@import "timer";
-@import "times";
-@import "averages";
-@import "scramble";
-@import "puzzleDetails";
-@import "config";
-@import "sounds";
-@import "tooltip";
-@import "support";
-@import "inlinePopups";
-@import "tabs";
+@import "partials/timer";
+@import "partials/times";
+@import "partials/averages";
+@import "partials/scramble";
+@import "partials/puzzleDetails";
+@import "partials/config";
+@import "partials/sounds";
+@import "partials/tooltip";
+@import "partials/support";
+@import "partials/inlinePopups";
+@import "partials/tabs";
 
 @import "themes/light";
 @import "themes/newspaper";

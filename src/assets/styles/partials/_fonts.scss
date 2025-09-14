@@ -46,25 +46,28 @@
 
 // Rubik
 @font-face {
-	font-family: Rubik;
+	font-family: "Rubik";
 	src: url("/public/fonts/Rubik/Rubik-Regular.woff2") format("woff2");
 	font-weight: normal;
 	font-style: normal;
 }
+
 @font-face {
-	font-family: Rubik;
+	font-family: "Rubik";
 	src: url("/public/fonts/Rubik/Rubik-Bold.woff2") format("woff2");
 	font-weight: bold;
 	font-style: normal;
 }
+
 @font-face {
-	font-family: Rubik;
+	font-family: "Rubik";
 	src: url("/public/fonts/Rubik/Rubik-Italic.woff2") format("woff2");
 	font-weight: normal;
 	font-style: italic;
 }
+
 @font-face {
-	font-family: Rubik;
+	font-family: "Rubik";
 	src: url("/public/fonts/Rubik/Rubik-BoldItalic.woff2") format("woff2");
 	font-weight: bold;
 	font-style: italic;
@@ -79,6 +82,6 @@
 
 // NovaMono
 @font-face {
-	font-family: NovaMono;
+	font-family: "NovaMono";
 	src: url("/public/fonts/Nova_Mono/NovaMono-Regular.woff2") format("woff2");
 }
