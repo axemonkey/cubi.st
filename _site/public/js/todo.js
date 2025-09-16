@@ -22,6 +22,7 @@ TODO
   * also Atkinson Hyperlegible: https://brailleinstitute.org/freefont
   * not just dark/light theme – colour balance for ADHD
   * Trinity theme - mayyyyybe do a matrix animated falling text background on either the button, or the whole page, when timer is running
+  * Hotdog stand theme - https://redwombat.social/@RangerRick/115209661967518517
   * might want to investigate using the Monaspace fonts for the fixed width stuff - https://monaspace.githubnext.com/
 
 * all that inline HTML in the JS is kinda nasty - some kind of templating thing would be a good idea
