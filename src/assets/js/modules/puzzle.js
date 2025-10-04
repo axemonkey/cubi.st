@@ -1,9 +1,9 @@
-import {timerSettings} from './settings.js';
-import {hardStop} from './timer.js';
-import {getTimesForPuzzle} from './times.js';
-import {showScramble} from './scramble.js';
-import {setConfig} from './timer-config.js';
-import {toasty} from './toasties.js';
+import { timerSettings } from "./settings.js";
+import { hardStop } from "./timer.js";
+import { getTimesForPuzzle } from "./times.js";
+import { showScramble } from "./scramble.js";
+import { setConfig } from "./timer-config.js";
+import { toasty } from "./toasties.js";
 
 const setupForPuzzle = () => {
 	hardStop();
@@ -20,11 +20,14 @@ const initPuzzle = () => {
 	console.log(`timerSettings.puzzle: ${timerSettings.puzzle}`);
 
 	if (timerSettings.selectPuzzleEl) {
-		for (const elem of timerSettings.selectPuzzleEl.querySelectorAll('option')) {
+		for (const elem of timerSettings.selectPuzzleEl.querySelectorAll(
+			"option",
+		)) {
 			const puzzleOption = elem;
 			puzzleOption.selected = false;
 		}
-		timerSettings.selectPuzzleEl.querySelector('#puzzle_' + puzzle).selected = true;
+		timerSettings.selectPuzzleEl.querySelector("#puzzle_" + puzzle).selected =
+			true;
 		setupForPuzzle();
 	}
 };
@@ -39,4 +42,4 @@ const selectPuzzle = () => {
 	setupForPuzzle();
 };
 
-export {initPuzzle, setupForPuzzle, selectPuzzle};
+export { initPuzzle, setupForPuzzle, selectPuzzle };

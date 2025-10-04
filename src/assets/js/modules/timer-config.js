@@ -1,14 +1,14 @@
-import {timerSettings} from './settings.js';
-import {initOptions} from './options.js';
+import { timerSettings } from "./settings.js";
+import { initOptions } from "./options.js";
 
 const logConfig = () => {
 	console.log(timerSettings.configObj);
 };
 
 const getConfig = () => {
-	console.log('getting config');
+	console.log("getting config");
 	const ls = localStorage.getItem(timerSettings.configStorageItem);
-	const configObjString = ls || '{}';
+	const configObjString = ls || "{}";
 	timerSettings.configObj = JSON.parse(configObjString);
 	logConfig();
 };
@@ -22,11 +22,14 @@ const setConfig = () => {
 		puzzle: timerSettings.puzzle,
 	};
 
-	console.log('setting config');
+	console.log("setting config");
 	timerSettings.configObj = configObj;
-	localStorage.setItem(timerSettings.configStorageItem, JSON.stringify(configObj));
+	localStorage.setItem(
+		timerSettings.configStorageItem,
+		JSON.stringify(configObj),
+	);
 	logConfig();
 	initOptions();
 };
 
-export {getConfig, setConfig};
+export { getConfig, setConfig };

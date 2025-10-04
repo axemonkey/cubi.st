@@ -1,6 +1,4 @@
-import {
-	processImagesFunction,
-} from './build-functions.js';
+import { processImagesFunction } from "./build-functions.js";
 
 async function processImages(siteRoot) {
 	const options = {
@@ -11,6 +9,4 @@ async function processImages(siteRoot) {
 	await processImagesFunction(options);
 }
 
-export {
-	processImages,
-};
+export { processImages };

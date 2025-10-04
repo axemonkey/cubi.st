@@ -1,7 +1,7 @@
-import {timerSettings} from './settings.js';
-import {setConfig} from './timer-config.js';
-import {startTimer} from './timer.js';
-import {toasty} from './toasties.js';
+import { timerSettings } from "./settings.js";
+import { setConfig } from "./timer-config.js";
+import { startTimer } from "./timer.js";
+import { toasty } from "./toasties.js";
 
 const initCountdownDuration = () => {
 	let duration = Number(timerSettings.defaults.countdownDuration);
@@ -11,17 +11,25 @@ const initCountdownDuration = () => {
 	timerSettings.countdownDuration = duration;
 
 	if (timerSettings.countdownDurationEl) {
-		for (const elem of timerSettings.countdownDurationEl.querySelectorAll('option')) {
+		for (const elem of timerSettings.countdownDurationEl.querySelectorAll(
+			"option",
+		)) {
 			const dropdownOption = elem;
 			dropdownOption.selected = false;
 		}
-		timerSettings.countdownDurationEl.querySelector('#duration' + duration).selected = true;
+		timerSettings.countdownDurationEl.querySelector(
+			"#duration" + duration,
+		).selected = true;
 	}
 };
 
 const getCountdownDuration = () => {
-	timerSettings.countdownDuration = Number(timerSettings.countdownDurationEl.value);
-	console.log(`timerSettings.countdownDuration: ${timerSettings.countdownDuration}`);
+	timerSettings.countdownDuration = Number(
+		timerSettings.countdownDurationEl.value,
+	);
+	console.log(
+		`timerSettings.countdownDuration: ${timerSettings.countdownDuration}`,
+	);
 	toasty({
 		text: `Inspection time set: ${timerSettings.countdownDuration} seconds`,
 	});
@@ -32,13 +40,13 @@ const startCountdown = () => {
 	if (timerSettings.countdownDuration === 0) {
 		return startTimer();
 	}
-	console.log('start countdown');
+	console.log("start countdown");
 	if (timerSettings.soundsOn) {
-		document.querySelector('#sounds-startCountdown').play();
+		document.querySelector("#sounds-startCountdown").play();
 	}
 	timerSettings.timerRunning = false;
 	timerSettings.countdownRunning = true;
-	document.body.classList.add('countdownRunning');
+	document.body.classList.add("countdownRunning");
 	timerSettings.countdownPings = [];
 	timerSettings.startTime = Date.now();
 	window.clearInterval(timerSettings.timerIntervalVar);
@@ -56,20 +64,20 @@ const checkCountdown = () => {
 	timerSettings.timerEl.textContent = secondsLeft.toString();
 
 	if (secondsLeft === 0) {
-		timerSettings.timerEl.classList.remove('flash');
+		timerSettings.timerEl.classList.remove("flash");
 		return startTimer();
 	}
 
 	if (secondsLeft < 4 && timerSettings.countdownPings[secondsLeft] !== true) {
 		timerSettings.countdownPings[secondsLeft] = true;
-		timerSettings.timerEl.classList.add('flash');
+		timerSettings.timerEl.classList.add("flash");
 		window.setTimeout(() => {
-			timerSettings.timerEl.classList.remove('flash');
+			timerSettings.timerEl.classList.remove("flash");
 		}, 750);
 		if (timerSettings.soundsOn) {
-			document.querySelector('#sounds-ping').play();
+			document.querySelector("#sounds-ping").play();
 		}
 	}
 };
 
-export {initCountdownDuration, getCountdownDuration, startCountdown};
+export { initCountdownDuration, getCountdownDuration, startCountdown };

@@ -1,6 +1,6 @@
-import {timerSettings} from './settings.js';
-import {setConfig} from './timer-config.js';
-import {toasty} from './toasties.js';
+import { timerSettings } from "./settings.js";
+import { setConfig } from "./timer-config.js";
+import { toasty } from "./toasties.js";
 
 const initFocus = () => {
 	let focus = timerSettings.defaults.focusOn;
@@ -20,9 +20,9 @@ const checkFocusCheckbox = () => {
 	timerSettings.focusOn = timerSettings.focusCheckbox.checked;
 	console.log(`timerSettings.focusOn: ${timerSettings.focusOn}`);
 	toasty({
-		text: `Focus mode: ${timerSettings.focusOn ? 'on' : 'off'}`,
+		text: `Focus mode: ${timerSettings.focusOn ? "on" : "off"}`,
 	});
 	setConfig();
 };
 
-export {initFocus, checkFocusCheckbox};
+export { initFocus, checkFocusCheckbox };

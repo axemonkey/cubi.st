@@ -1,6 +1,13 @@
-import {convertTimeStringToSeconds, convertSecondsToTimeString, sumArray, roundToTwo, sortArray, removeHighestAndLowest} from './tools.js';
+import {
+	convertTimeStringToSeconds,
+	convertSecondsToTimeString,
+	sumArray,
+	roundToTwo,
+	sortArray,
+	removeHighestAndLowest,
+} from "./tools.js";
 
-const getAverages = timeStringsArray => {
+const getAverages = (timeStringsArray) => {
 	if (!timeStringsArray || timeStringsArray.length === 0) {
 		return {};
 	}
@@ -11,7 +18,9 @@ const getAverages = timeStringsArray => {
 		times[time] = convertTimeStringToSeconds(element.time);
 	}
 
-	averages.average = convertSecondsToTimeString(getAverage(times, times.length));
+	averages.average = convertSecondsToTimeString(
+		getAverage(times, times.length),
+	);
 	averages.best = convertSecondsToTimeString(getBest(times));
 
 	if (times.length >= 5) {
@@ -47,48 +56,52 @@ const getAverage = (times, howMany, removeExtremes) => {
 	return averageResult;
 };
 
-const getBest = times => {
+const getBest = (times) => {
 	const sortedTimes = sortArray(times);
-	console.log('BEST LOL ' + sortedTimes[0]);
+	console.log("BEST LOL " + sortedTimes[0]);
 	return sortedTimes[0];
 };
 
-const getAveragesHTML = averagesObj => {
+const getAveragesHTML = (averagesObj) => {
 	const prefix = '<ul id="averages-list">';
-	const suffix = '</ul>';
+	const suffix = "</ul>";
 	const averagesListItemsObjArray = [
 		{
-			label: 'Average',
-			value: averagesObj.average || '...',
-			tooltip: 'The mean average of all times recorded for this puzzle',
+			label: "Average",
+			value: averagesObj.average || "...",
+			tooltip: "The mean average of all times recorded for this puzzle",
 		},
 		{
-			label: 'Best time',
-			value: averagesObj.best || '...',
-			tooltip: 'The fastest time recorded for this puzzle',
+			label: "Best time",
+			value: averagesObj.best || "...",
+			tooltip: "The fastest time recorded for this puzzle",
 		},
 		{
-			label: 'Average 5',
-			value: averagesObj.average5 || '...',
-			tooltip: 'The mean average of the most recent 5 times recorded for this puzzle',
+			label: "Average 5",
+			value: averagesObj.average5 || "...",
+			tooltip:
+				"The mean average of the most recent 5 times recorded for this puzzle",
 		},
 		{
-			label: 'A3of5',
-			value: averagesObj.a3of5 || '...',
-			tooltip: 'The mean average of the most recent 5 times recorded for this puzzle, with the fastest and slowest times removed',
+			label: "A3of5",
+			value: averagesObj.a3of5 || "...",
+			tooltip:
+				"The mean average of the most recent 5 times recorded for this puzzle, with the fastest and slowest times removed",
 		},
 		{
-			label: 'Average 10',
-			value: averagesObj.average10 || '...',
-			tooltip: 'The mean average of the most recent 10 times recorded for this puzzle',
+			label: "Average 10",
+			value: averagesObj.average10 || "...",
+			tooltip:
+				"The mean average of the most recent 10 times recorded for this puzzle",
 		},
 		{
-			label: 'A10of12',
-			value: averagesObj.a10of12 || '...',
-			tooltip: 'The mean average of the most recent 12 times recorded for this puzzle, with the fastest and slowest times removed',
+			label: "A10of12",
+			value: averagesObj.a10of12 || "...",
+			tooltip:
+				"The mean average of the most recent 12 times recorded for this puzzle, with the fastest and slowest times removed",
 		},
 	];
-	let averagesListItemsHTML = '';
+	let averagesListItemsHTML = "";
 
 	for (const obj of averagesListItemsObjArray) {
 		const listItemHTML = `<li><span class="averageLabelOuter"><span class="averageLabel" title="${obj.tooltip}">${obj.label}:</span></span> <span class="averageTime">${obj.value}</span></li>`;
@@ -98,4 +111,4 @@ const getAveragesHTML = averagesObj => {
 	return prefix + averagesListItemsHTML + suffix;
 };
 
-export {getAverages, getAveragesHTML};
+export { getAverages, getAveragesHTML };
