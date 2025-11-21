@@ -1,6 +1,6 @@
-import { timerSettings } from "./settings.js";
-import { setConfig } from "./timer-config.js";
-import { toasty } from "./toasties.js";
+import { timerSettings } from './settings.js';
+import { setConfig } from './timer-config.js';
+import { toasty } from './toasties.js';
 
 const initTheme = () => {
 	let theme = timerSettings.defaults.theme;
@@ -40,7 +40,7 @@ const clearTheme = () => {
 
 const setThemeDropdown = () => {
 	if (timerSettings.themeDropdown) {
-		const themeOptions = timerSettings.themeDropdown.querySelectorAll("option");
+		const themeOptions = timerSettings.themeDropdown.querySelectorAll('option');
 
 		for (const themeOption of themeOptions) {
 			if (themeOption.value === timerSettings.theme) {

@@ -3,7 +3,7 @@ const lz = (n, desiredLength = 2) => {
 	let numString = n.toString();
 
 	while (numString.length < desiredLength) {
-		numString = "0" + numString;
+		numString = '0' + numString;
 	}
 
 	return numString;
@@ -19,7 +19,7 @@ const formatTime = (ms) => {
 	const milliseconds = ms % 1000;
 	const hundredths = Math.floor(milliseconds / 10);
 
-	return lz(minutes) + "." + lz(seconds % 60) + "." + lz(hundredths);
+	return lz(minutes) + '.' + lz(seconds % 60) + '.' + lz(hundredths);
 };
 
 const sumArray = (arrayOfNumbers) => {
@@ -29,7 +29,7 @@ const sumArray = (arrayOfNumbers) => {
 };
 
 const roundToTwo = (num) => {
-	return Number(Math.round(num + "e+2") + "e-2");
+	return Number(Math.round(num + 'e+2') + 'e-2');
 };
 
 const sortNumber = (a, b) => {
@@ -49,7 +49,7 @@ const removeHighestAndLowest = (arrayOfNumbers) => {
 };
 
 const convertTimeStringToSeconds = (timeString) => {
-	const timeStringSplit = timeString.split(".");
+	const timeStringSplit = timeString.split('.');
 	const minutes = Number(timeStringSplit[0]);
 	const seconds = Number(timeStringSplit[1]);
 	const hundredths = Number(timeStringSplit[2]);
@@ -66,7 +66,7 @@ const convertSecondsToTimeString = (timeInSeconds) => {
 		roundToTwo(timeInSeconds - Math.floor(timeInSeconds)) * 100,
 	);
 
-	const timeString = [lz(minutes), lz(seconds), lz(hundredths)].join(".");
+	const timeString = [lz(minutes), lz(seconds), lz(hundredths)].join('.');
 
 	console.log(`timeInSeconds: ${timeInSeconds}`);
 	console.log(`Math.floor(timeInSeconds): ${Math.floor(timeInSeconds)}`);

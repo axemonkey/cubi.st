@@ -1,16 +1,16 @@
 // Styles (Refer to https://tforgione.fr/posts/ansi-escape-codes/)
-const reset = "\u001B[0m";
-const bgRed = "\u001B[41m";
-const fgBlue = "\u001B[34m";
-const bgBlue = "\u001B[44m";
-const fgGreen = "\u001B[32m";
-const bgOrange = "\u001B[48;2;174;138;45m";
-const bgMagenta = "\u001B[45m";
-const fgWhite = "\u001B[37m";
-const fgBlack = "\u001B[30m";
-const bold = "\u001B[1m";
-const bgRgbSwitch = "\u001B[48;2;";
-const fgRgbSwitch = "\u001B[38;2;";
+const reset = '\u001B[0m';
+const bgRed = '\u001B[41m';
+const fgBlue = '\u001B[34m';
+const bgBlue = '\u001B[44m';
+const fgGreen = '\u001B[32m';
+const bgOrange = '\u001B[48;2;174;138;45m';
+const bgMagenta = '\u001B[45m';
+const fgWhite = '\u001B[37m';
+const fgBlack = '\u001B[30m';
+const bold = '\u001B[1m';
+const bgRgbSwitch = '\u001B[48;2;';
+const fgRgbSwitch = '\u001B[38;2;';
 
 /**
  * Creates the banner color string to use for logging your banners.
@@ -24,16 +24,16 @@ function getBannerColors(bgColor, fgColor) {
 	let backgroundColor = bgBlue;
 	let foregroundColor = fgWhite;
 
-	if (typeof bgColor === "string") {
+	if (typeof bgColor === 'string') {
 		backgroundColor = bgColor;
 	} else if (Array.isArray(bgColor) && bgColor.length === 3) {
-		backgroundColor = `${bgRgbSwitch}${bgColor.join(";")}m`;
+		backgroundColor = `${bgRgbSwitch}${bgColor.join(';')}m`;
 	}
 
-	if (typeof fgColor === "string") {
+	if (typeof fgColor === 'string') {
 		foregroundColor = fgColor;
 	} else if (Array.isArray(fgColor) && fgColor.length === 3) {
-		foregroundColor = `${fgRgbSwitch}${fgColor.join(";")}m`;
+		foregroundColor = `${fgRgbSwitch}${fgColor.join(';')}m`;
 	}
 
 	return `${backgroundColor}${foregroundColor}${bold}`;
@@ -41,16 +41,16 @@ function getBannerColors(bgColor, fgColor) {
 
 const logger = {
 	success: (message) => {
-		console.log(`${fgGreen}${bold}`, "\n\bSUCCESS", `\b${reset}`, `${message}`);
+		console.log(`${fgGreen}${bold}`, '\n\bSUCCESS', `\b${reset}`, `${message}`);
 	},
 	warning: (message) => {
-		console.log(`${fgBlack}${bgOrange}${bold}`, "WARNING", `${reset}`, message);
+		console.log(`${fgBlack}${bgOrange}${bold}`, 'WARNING', `${reset}`, message);
 	},
 	failure: (error) => {
-		console.log(`${fgBlack}${bgRed}${bold}`, "FAILURE", `${reset}`, error);
+		console.log(`${fgBlack}${bgRed}${bold}`, 'FAILURE', `${reset}`, error);
 	},
 	info: (message) => {
-		console.log(`${fgBlue}${fgBlue}${bold}`, "\bINFO", `\b${reset}`, message);
+		console.log(`${fgBlue}${fgBlue}${bold}`, '\bINFO', `\b${reset}`, message);
 	},
 	log: (message) => {
 		console.log(message);

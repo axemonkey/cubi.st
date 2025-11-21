@@ -1,4 +1,4 @@
-import { processImagesFunction } from "./build-functions.js";
+import { processImagesFunction } from './build-functions.js';
 
 async function processImages(siteRoot) {
 	const options = {

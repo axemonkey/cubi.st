@@ -1,9 +1,9 @@
-import fs from "fs";
-import path from "path";
-import { optimize } from "svgo";
-import sharp from "sharp";
+import fs from 'fs';
+import path from 'path';
+import { optimize } from 'svgo';
+import sharp from 'sharp';
 
-import { logger, em, imagesBannerBranding } from "./build-logger.js";
+import { logger, em, imagesBannerBranding } from './build-logger.js';
 
 /**
  * Gets the time it took from given start date.
@@ -16,7 +16,7 @@ function getTimeItTook(start) {
 }
 
 async function processImagesFunction(options) {
-	logger.banner("Processing images", imagesBannerBranding);
+	logger.banner('Processing images', imagesBannerBranding);
 	const start = Date.now();
 
 	async function processSvg(svgFile) {
@@ -24,7 +24,7 @@ async function processImagesFunction(options) {
 
 		const filePath = `${options.source}/${svgFile}`;
 		const destinationFile = `${options.destination}/${svgFile}`;
-		const svgFileContent = fs.readFileSync(filePath, "utf8");
+		const svgFileContent = fs.readFileSync(filePath, 'utf8');
 
 		const result = optimize(svgFileContent);
 		const optimizedSvgFileContent = result.data;
@@ -55,14 +55,14 @@ async function processImagesFunction(options) {
 	if (fs.existsSync(options.source)) {
 		const imageFiles = fs.readdirSync(options.source).filter((file) => {
 			const supportedExtensions = [
-				"png",
-				"jpg",
-				"jpeg",
-				"svg",
-				"ico",
-				"gif",
-				"avif",
-				"webp",
+				'png',
+				'jpg',
+				'jpeg',
+				'svg',
+				'ico',
+				'gif',
+				'avif',
+				'webp',
 			];
 			for (const extension of supportedExtensions) {
 				if (path.extname(file).toLowerCase() === `.${extension}`) {
@@ -90,7 +90,7 @@ async function processImagesFunction(options) {
 				const filePath = `${options.source}/${imageFile}`;
 				const fileExtension = path.extname(imageFile).toLowerCase();
 
-				if ([".ico"].includes(fileExtension)) {
+				if (['.ico'].includes(fileExtension)) {
 					// just copy it
 					if (fs.statSync(filePath).isFile()) {
 						const destinationFile = `${options.destination}/${imageFile}`;
@@ -98,11 +98,11 @@ async function processImagesFunction(options) {
 
 						logger.step(`${em(destinationFile)} successfully created\n`);
 					}
-				} else if (fileExtension === ".svg") {
+				} else if (fileExtension === '.svg') {
 					// do svgo
 					await processSvg(imageFile);
 				} else if (
-					[".jpg", ".jpeg", ".png", ".gif", ".webp", ".avif"].includes(
+					['.jpg', '.jpeg', '.png', '.gif', '.webp', '.avif'].includes(
 						fileExtension,
 					)
 				) {
