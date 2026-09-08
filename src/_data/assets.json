@@ -1,8 +1,11 @@
 {
   "cubist": {
-    "css": "cubist-34c373c.css"
+    "css": "cubist-1b09818.css"
   },
   "main": {
-    "js": "main-0726155.js"
+    "js": "main-79b8dd9.js"
+  },
+  "style": {
+    "css": "style-5e09218.css"
   }
 }

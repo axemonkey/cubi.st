@@ -40,22 +40,22 @@ function getBannerColors(bgColor, fgColor) {
 }
 
 const logger = {
-	success: (message) => {
+	success: message => {
 		console.log(`${fgGreen}${bold}`, '\n\bSUCCESS', `\b${reset}`, `${message}`);
 	},
-	warning: (message) => {
+	warning: message => {
 		console.log(`${fgBlack}${bgOrange}${bold}`, 'WARNING', `${reset}`, message);
 	},
-	failure: (error) => {
+	failure: error => {
 		console.log(`${fgBlack}${bgRed}${bold}`, 'FAILURE', `${reset}`, error);
 	},
-	info: (message) => {
+	info: message => {
 		console.log(`${fgBlue}${fgBlue}${bold}`, '\bINFO', `\b${reset}`, message);
 	},
-	log: (message) => {
+	log: message => {
 		console.log(message);
 	},
-	step: (message) => {
+	step: message => {
 		console.log(`\t\u2714 ${message}`);
 	},
 	banner: (message, style = `${fgWhite}${bgMagenta}${bold}`) => {
