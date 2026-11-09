@@ -23,7 +23,7 @@
 		"node": "24.20.0"
 	},
 	"devDependencies": {
-		"@11ty/eleventy": "^3.1.6",
+		"@11ty/eleventy": "^3.1.8",
 		"@eslint/js": "^10.0.1",
 		"@springernature/assets-pipeline": "^0.3.2",
 		"eslint": "^10.13.0",
