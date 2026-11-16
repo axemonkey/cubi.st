@@ -35,7 +35,7 @@
 		"moment": "^2.31.0",
 		"npm-run-all2": "^9.0.4",
 		"onchange": "^7.1.0",
-		"prettier": "^3.9.10",
+		"prettier": "^3.10.1",
 		"sharp": "^0.35.5",
 		"stylelint": "^17.6.0",
 		"stylelint-config-recommended-scss": "^17.0.1",
